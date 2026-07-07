@@ -54,7 +54,6 @@ export default async function decorate(block) {
     navTools.innerHTML = `
       <button type="button" class="nav-search-toggle" aria-label="Search" aria-expanded="false">
         <span class="nav-search-icon"></span>
-        <span class="nav-search-label">Search</span>
       </button>
       <div class="nav-search" role="search">
         <input type="search" aria-label="Search" placeholder="What would you like to find?">

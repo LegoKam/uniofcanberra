@@ -11,11 +11,11 @@ header .nav-wrapper {
 header nav {
   display: grid;
   grid-template-areas:
-    'utility utility'
-    'brand tools'
-    'sections sections';
-  grid-template-columns: auto 1fr;
+    'utility utility utility'
+    'brand sections tools';
+  grid-template-columns: auto 1fr auto;
   align-items: center;
+  column-gap: 32px;
   max-width: var(--content-max-width, 1140px);
   margin: 0 auto;
   padding: 0 24px;
@@ -26,17 +26,25 @@ header nav[aria-expanded='true'] {
   overflow: visible;
 }
 
-/* --- Utility bar (top dark slate strip) --- */
+/* --- Utility bar (top dark slate strip, full-bleed) --- */
 header nav .nav-utility {
   grid-area: utility;
-  margin: 0 -24px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   padding: 0 24px;
   background-color: #424d62;
 }
 
+header nav .nav-utility .default-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--content-max-width, 1140px);
+  margin: 0 auto;
+}
+
 header nav .nav-utility ul {
   display: flex;
-  justify-content: flex-end;
   gap: 22px;
   list-style: none;
   margin: 0;
@@ -46,6 +54,7 @@ header nav .nav-utility ul {
 header nav .nav-utility a {
   color: #fff;
   font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -106,20 +115,20 @@ header nav .nav-tools {
 header nav .nav-search-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: 0;
-  border-radius: 9999px;
+  border-radius: 50%;
   background-color: var(--link-color);
   color: #fff;
-  font: inherit;
-  font-size: 14px;
   cursor: pointer;
 }
 
 header nav .nav-search-icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background: no-repeat center / contain;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
 }
