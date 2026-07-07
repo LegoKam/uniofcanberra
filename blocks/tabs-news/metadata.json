@@ -1,0 +1,37 @@
+{
+  "variantName": "tabs-news",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-07-07T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.canberra.edu.au/",
+    "originPage": "University of Canberra homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "news-tabs",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "tab labels + tab panels each containing a card grid",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "news and stories listings with multiple feeds",
+      "tabbed content switchers grouping related card sets"
+    ],
+    "notSuitableFor": [
+      "single content set without tabs",
+      "FAQ-style expandable content (use accordion)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-07T00:00:00.000Z"
+  }
+}

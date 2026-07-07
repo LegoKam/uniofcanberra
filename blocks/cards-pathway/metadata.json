@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-pathway",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-07T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.canberra.edu.au/",
+    "originPage": "University of Canberra homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "pathway-cards",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "linked heading + one-line description per card",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "audience/pathway selectors",
+      "text-only navigational card groups",
+      "quick-link tiles without images"
+    ],
+    "notSuitableFor": [
+      "cards that require images or icons",
+      "news/article cards with thumbnails"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-07T00:00:00.000Z"
+  }
+}

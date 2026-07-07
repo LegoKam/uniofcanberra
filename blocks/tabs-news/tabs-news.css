@@ -1,0 +1,149 @@
+/* tabs-news -- News / UnCover tab switcher
+   Migrated from University of Canberra homepage (.news-selector .nav-link).
+   Source: tabs sit on a dark-teal panel; active tab is light-teal/bold with a
+   thin white underline, inactive is white/medium. Values from source computed
+   styles (see migration-work/tabs-news-extracted.css). */
+
+.tabs-news {
+  background-color: var(--dark-color); /* dark teal #003d4c panel */
+  color: #fff;
+  padding: 32px 24px;
+}
+
+/* --- tablist (decorated .tabs-news-list, role=tablist) --- */
+.tabs-news .tabs-news-list {
+  display: flex;
+  flex-direction: column; /* tabs stack full-width on mobile */
+  gap: 0;
+  margin: 0 0 24px;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: visible;
+}
+
+/* --- tab buttons (decorated .tabs-news-tab, role=tab) --- */
+.tabs-news .tabs-news-list button {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background-color: transparent;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+  text-overflow: unset;
+  overflow: unset;
+  white-space: unset;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tabs-news .tabs-news-list button p {
+  margin: 0;
+}
+
+.tabs-news .tabs-news-list button:hover {
+  color: rgb(146 214 227); /* #92d6e3 light teal */
+}
+
+/* active tab */
+.tabs-news .tabs-news-list button[aria-selected='true'] {
+  color: rgb(146 214 227); /* #92d6e3 light teal */
+  font-weight: 700;
+  border-bottom-color: rgb(255 255 255 / 80%);
+  background-color: transparent;
+  cursor: default;
+}
+
+/* --- panels (decorated .tabs-news-panel, role=tabpanel) --- */
+.tabs-news .tabs-news-panel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+}
+
+.tabs-news .tabs-news-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* panel content links inherit white on the dark panel */
+.tabs-news .tabs-news-panel a:any-link {
+  color: #fff;
+}
+
+.tabs-news .tabs-news-panel a:hover {
+  color: rgb(146 214 227);
+}
+
+.tabs-news .tabs-news-panel h4 {
+  color: #fff;
+}
+
+/* Panel content: present each news item block as a readable stacked entry */
+.tabs-news .tabs-news-panel h4 {
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.tabs-news .tabs-news-panel p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.tabs-news .tabs-news-panel picture img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+/* Hide the duplicate standalone news cards + their repeated headings that the
+   importer produced after the tab block (the tab panels already carry this
+   content and provide the News/UnCover switching). The tabs-news-wrapper is
+   the last content we keep in this section; everything after it is duplicate. */
+.cards-stat-container > .cards-news-wrapper {
+  display: none;
+}
+
+.cards-stat-container > .tabs-news-wrapper ~ .default-content-wrapper {
+  display: none;
+}
+
+/* --- desktop: teal panel with tabs on the left, news items on the right --- */
+@media (width >= 900px) {
+  .tabs-news {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    padding: 48px 40px;
+  }
+
+  .tabs-news .tabs-news-list {
+    flex-direction: column;
+    gap: 12px;
+    align-self: start;
+  }
+
+  .tabs-news .tabs-news-list button {
+    flex: 0 0 auto;
+    font-size: 24px;
+  }
+
+  /* News items list on the right of the teal panel */
+  .tabs-news .tabs-news-panel {
+    align-self: start;
+  }
+
+  .tabs-news .tabs-news-panel picture img {
+    max-height: 160px;
+    object-fit: cover;
+  }
+}

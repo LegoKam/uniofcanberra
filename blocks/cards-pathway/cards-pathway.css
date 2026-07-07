@@ -1,0 +1,121 @@
+/* Block: cards-pathway -- "Choose your pathway"
+ * Section layout: teal jumbo heading panel (left) + white card box (right, 2x2).
+ * Heading is default content; cards are one block. Styled at the container level
+ * because the heading and cards live in separate section wrappers.
+ */
+
+.cards-pathway-container > div {
+  max-width: var(--content-max-width, 1140px);
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* Teal jumbo heading panel */
+.cards-pathway-container .default-content-wrapper {
+  background-color: var(--brand-teal, #006c91);
+  padding: 48px 40px;
+}
+
+.cards-pathway-container .default-content-wrapper h2 {
+  margin: 0;
+  max-width: 6ch;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* White card box holding the 4 pathway cards */
+.cards-pathway {
+  padding: 0;
+  background: none;
+}
+
+.cards-pathway > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px 40px;
+}
+
+.cards-pathway > ul > li {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.cards-pathway .cards-pathway-card-body {
+  margin: 0;
+}
+
+/* Card heading link */
+.cards-pathway .cards-pathway-card-body h3 {
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--link-color);
+}
+
+.cards-pathway .cards-pathway-card-body h3 a:any-link {
+  color: var(--link-color);
+  font: inherit;
+  text-decoration: none;
+}
+
+.cards-pathway .cards-pathway-card-body h3 a:hover {
+  text-decoration: underline;
+}
+
+/* Description */
+.cards-pathway .cards-pathway-card-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+@media (width >= 900px) {
+  /* Overlapping 2-column section: teal panel behind, white card box in front */
+  .cards-pathway-container > div {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: start;
+    padding: 60px 24px;
+  }
+
+  .cards-pathway-container .default-content-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: stretch;
+    z-index: 0;
+    padding: 64px 48px;
+  }
+
+  .cards-pathway-container .default-content-wrapper h2 {
+    font-size: 48px;
+  }
+
+  /* White card box overlaps the teal panel */
+  .cards-pathway-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+    z-index: 1;
+    margin: 32px 0 32px -80px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+  }
+
+  .cards-pathway > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

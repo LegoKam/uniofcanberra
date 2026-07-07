@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "projectType": "doc"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.canberra.edu.au/"
+      ],
+      "representativeUrl": "https://www.canberra.edu.au/",
+      "coverageGaps": [],
+      "description": "University of Canberra homepage: full-bleed hero with heading and CTA, a 'Choose your pathway' card grid, an 'Explore our courses' search + study-area card grid, a 'Why study at UC' selling-points feature, and a 'News and stories' tabbed listing.",
+      "blocks": [
+        {
+          "name": "hero-campaign",
+          "instances": ["body > section.hero-section"]
+        },
+        {
+          "name": "cards-pathway",
+          "instances": ["div.container.my-5 .pathway-items"]
+        },
+        {
+          "name": "cards-studyarea",
+          "instances": ["section.courses-section .course-category"]
+        },
+        {
+          "name": "cards-stat",
+          "instances": ["#selling_points_2378666 .selling-point"]
+        },
+        {
+          "name": "tabs-news",
+          "instances": ["section .news-selector"]
+        },
+        {
+          "name": "cards-news",
+          "instances": ["section .tab-content .news-item-card"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc3",
+          "name": "hero",
+          "selector": ["body > section.hero-section"],
+          "style": null,
+          "blocks": ["hero-campaign"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4",
+          "name": "choose-your-pathway",
+          "selector": ["body > div.container.my-5"],
+          "style": null,
+          "blocks": ["cards-pathway"],
+          "defaultContent": ["div.container.my-5 .jumbo-heading"]
+        },
+        {
+          "id": "rc5",
+          "name": "explore-our-courses",
+          "selector": ["body > section.courses-section"],
+          "style": null,
+          "blocks": ["cards-studyarea"],
+          "defaultContent": [
+            "section.courses-section .jumbo-heading",
+            "section.courses-section .course-search-bar"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "why-study-at-uc",
+          "selector": ["#selling_points_2378666"],
+          "style": null,
+          "blocks": ["cards-stat"],
+          "defaultContent": ["#selling_points_2378666 .selling-point-main"]
+        },
+        {
+          "id": "rc7",
+          "name": "news-and-stories",
+          "selector": ["body > section:nth-of-type(3)"],
+          "style": "dark-teal",
+          "blocks": ["tabs-news", "cards-news"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

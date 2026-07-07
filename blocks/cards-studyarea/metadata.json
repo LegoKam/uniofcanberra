@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-studyarea",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-07T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.canberra.edu.au/",
+    "originPage": "University of Canberra homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "studyarea-cards",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon image + linked label per card",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "category/study-area icon grids",
+      "compact icon-and-label navigational tiles"
+    ],
+    "notSuitableFor": [
+      "cards with long descriptions",
+      "photo-led article cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-07T00:00:00.000Z"
+  }
+}

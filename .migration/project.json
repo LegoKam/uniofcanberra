@@ -1,8 +1,10 @@
 {
+  "type": "doc",
   "sites": {
     "uniofcanberra": {
       "previewOrg": "legokam",
-      "previewSite": "uniofcanberra"
+      "previewSite": "uniofcanberra",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
     }
   }
 }

@@ -1,0 +1,26 @@
+:root {
+  --heading-font-family: "STIX Two Text", serif;
+  --body-font-family: figtree, sans-serif;
+  --display-font-family: anton, sans-serif;
+
+  --background-color: #fff;
+  --text-color: #333;
+  --link-color: #006c91;
+  --link-hover-color: #0056b3;
+
+  --brand-teal: #006c91;
+  --brand-dark-teal: #003d4c;
+  --light-color: #f4f4f4;
+  --dark-color: #003d4c;
+
+  --section-padding: 40px;
+  --nav-height: 124px;
+  --content-max-width: 1140px;
+
+  --heading-size-xxl: 40px;
+  --heading-size-xl: 70px;
+  --heading-size-l: 24px;
+  --heading-size-m: 19px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+}

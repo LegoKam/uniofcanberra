@@ -1,0 +1,91 @@
+/* cards-news -- news card grid.
+   Values extracted from source computed styles: canberra.edu.au .news-item-card.
+   Decorated DOM: .cards-news > ul > li > (.cards-news-card-image, .cards-news-card-body). */
+
+.cards-news > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* card container */
+.cards-news > ul > li {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  color: var(--text-color); /* #333 */
+  border: none;
+  border-radius: 0;
+  box-shadow: rgb(0 0 0 / 15%) 0 8px 16px 0;
+}
+
+/* image on top, cropped to ~4/3 landscape */
+.cards-news .cards-news-card-image {
+  line-height: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.cards-news .cards-news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* body: date, heading, excerpt */
+.cards-news .cards-news-card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 16px;
+}
+
+/* publication date (source .news-item-date).
+   In the decorated body it is the last <p>; source renders it above the heading. */
+.cards-news .cards-news-card-body p:last-child {
+  order: -1;
+  margin: 0 0 12px;
+  color: #414042;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* heading (source h4) */
+.cards-news .cards-news-card-body h4 {
+  margin: 0 0 20px;
+  font-family: var(--body-font-family);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+.cards-news .cards-news-card-body h4 a:any-link {
+  color: var(--link-color); /* #006c91 -- override dark-teal section white link */
+  text-decoration: none;
+}
+
+.cards-news .cards-news-card-body h4 a:hover {
+  text-decoration: underline;
+}
+
+/* excerpt paragraph (source .news-item-summary p) */
+.cards-news .cards-news-card-body p {
+  margin: 0 0 16px;
+  color: var(--text-color);
+  font-size: 15.2px;
+  line-height: 1.5;
+}
+
+/* desktop: 3 cards per row (source col-lg-4) */
+@media (width >= 900px) {
+  .cards-news > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
