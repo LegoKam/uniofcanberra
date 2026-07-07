@@ -1,149 +1,272 @@
-/* tabs-news -- News / UnCover tab switcher
-   Migrated from University of Canberra homepage (.news-selector .nav-link).
-   Source: tabs sit on a dark-teal panel; active tab is light-teal/bold with a
-   thin white underline, inactive is white/medium. Values from source computed
-   styles (see migration-work/tabs-news-extracted.css). */
+/* tabs-news -- "News and stories" tabbed news listing
+ * Left: dark teal panel with heading + News/UnCover tabs.
+ * Right: 3-column news cards overlapping the panel.
+ */
+
+.tabs-news-container {
+  max-width: var(--content-max-width, 1140px);
+  margin: 40px auto;
+  padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+}
+
+.tabs-news-container > .default-content-wrapper,
+.tabs-news-container > .tabs-news-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Teal background for left column */
+.tabs-news-container::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 24px;
+  right: 24px;
+  background-color: #006c91;
+  z-index: 0;
+}
+
+/* Section heading */
+.tabs-news-container .default-content-wrapper {
+  position: relative;
+  z-index: 2;
+  padding: 48px 40px 0;
+}
+
+.tabs-news-container .default-content-wrapper h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.tabs-news-container .default-content-wrapper h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  border-bottom: 8px solid #009abc;
+  margin-top: 12px;
+}
+
+.tabs-news-wrapper {
+  position: relative;
+  z-index: 1;
+}
 
 .tabs-news {
-  background-color: var(--dark-color); /* dark teal #003d4c panel */
-  color: #fff;
-  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 
-/* --- tablist (decorated .tabs-news-list, role=tablist) --- */
+/* Tab list */
 .tabs-news .tabs-news-list {
   display: flex;
-  flex-direction: column; /* tabs stack full-width on mobile */
+  flex-direction: column;
   gap: 0;
-  margin: 0 0 24px;
-  padding: 0;
-  max-width: 100%;
-  overflow-x: visible;
+  margin: 0;
+  padding: 0 40px 32px;
+  position: relative;
+  z-index: 2;
 }
 
-/* --- tab buttons (decorated .tabs-news-tab, role=tab) --- */
 .tabs-news .tabs-news-list button {
-  flex: 1 1 auto;
   margin: 0;
   padding: 12px 0;
   border: 0;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid rgb(255 255 255 / 80%);
   border-radius: 0;
-  background-color: transparent;
+  background: transparent;
   color: #fff;
   font-family: var(--body-font-family);
   font-size: 21px;
   font-weight: 500;
   line-height: 1.5;
   text-align: left;
-  text-overflow: unset;
-  overflow: unset;
-  white-space: unset;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
 }
 
-.tabs-news .tabs-news-list button p {
-  margin: 0;
+.tabs-news .tabs-news-list button:last-child {
+  border-bottom: none;
 }
 
 .tabs-news .tabs-news-list button:hover {
-  color: rgb(146 214 227); /* #92d6e3 light teal */
+  color: #92d6e3;
 }
 
-/* active tab */
 .tabs-news .tabs-news-list button[aria-selected='true'] {
-  color: rgb(146 214 227); /* #92d6e3 light teal */
+  color: #92d6e3;
   font-weight: 700;
-  border-bottom-color: rgb(255 255 255 / 80%);
-  background-color: transparent;
   cursor: default;
 }
 
-/* --- panels (decorated .tabs-news-panel, role=tabpanel) --- */
-.tabs-news .tabs-news-panel {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  overflow: visible;
-}
-
+/* Tab panels */
 .tabs-news .tabs-news-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* panel content links inherit white on the dark panel */
-.tabs-news .tabs-news-panel a:any-link {
-  color: #fff;
+.tabs-news .tabs-news-panel {
+  margin: 0;
+  padding: 0;
 }
 
-.tabs-news .tabs-news-panel a:hover {
-  color: rgb(146 214 227);
+/* Card grid */
+.tabs-news-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 
-.tabs-news .tabs-news-panel h4 {
-  color: #fff;
+.tabs-news-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
 }
 
-/* Panel content: present each news item block as a readable stacked entry */
-.tabs-news .tabs-news-panel h4 {
-  margin: 0 0 8px;
+.tabs-news-card-image {
+  line-height: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.tabs-news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tabs-news-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px;
+}
+
+.tabs-news-card-date {
+  margin: 0 0 12px;
+  color: #414042;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.tabs-news-card-body h4 {
+  margin: 0 0 16px;
   font-family: var(--body-font-family);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.25;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
-.tabs-news .tabs-news-panel p {
-  margin: 0 0 8px;
+.tabs-news-card-body h4 a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.tabs-news-card-body h4 a:hover {
+  text-decoration: underline;
+}
+
+.tabs-news-card-excerpt {
+  margin: 0;
+  color: var(--text-color);
   font-size: 15px;
   line-height: 1.5;
 }
 
-.tabs-news .tabs-news-panel picture img {
-  max-width: 100%;
-  border-radius: 4px;
+/* View all CTA */
+.tabs-news-view-all {
+  margin: 8px 0 0;
+  text-align: right;
+  grid-column: 1 / -1;
 }
 
-/* Hide the duplicate standalone news cards + their repeated headings that the
-   importer produced after the tab block (the tab panels already carry this
-   content and provide the News/UnCover switching). The tabs-news-wrapper is
-   the last content we keep in this section; everything after it is duplicate. */
-.cards-stat-container > .cards-news-wrapper {
-  display: none;
+.tabs-news-view-all a:any-link {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  background-color: #006c91;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
 }
 
-.cards-stat-container > .tabs-news-wrapper ~ .default-content-wrapper {
-  display: none;
+.tabs-news-view-all a:hover {
+  background-color: #005a78;
 }
 
-/* --- desktop: teal panel with tabs on the left, news items on the right --- */
 @media (width >= 900px) {
-  .tabs-news {
+  .tabs-news-container {
+    grid-template-columns: 300px 1fr;
+    align-items: start;
+  }
+
+  .tabs-news-container::before {
+    top: 40px;
+    bottom: 40px;
+    left: 24px;
+    width: 300px;
+    right: auto;
+  }
+
+  .tabs-news-container .default-content-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .tabs-news-container .default-content-wrapper h2 {
+    font-size: 44px;
+  }
+
+  .tabs-news-container .default-content-wrapper h2::after {
+    width: 100px;
+    border-bottom-width: 12px;
+    margin-top: 40px;
+  }
+
+  .tabs-news-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 1;
     display: grid;
     grid-template-columns: 300px 1fr;
-    gap: 40px;
-    padding: 48px 40px;
+  }
+
+  .tabs-news {
+    display: contents;
   }
 
   .tabs-news .tabs-news-list {
-    flex-direction: column;
-    gap: 12px;
-    align-self: start;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    padding: 0 40px 48px;
   }
 
-  .tabs-news .tabs-news-list button {
-    flex: 0 0 auto;
-    font-size: 24px;
-  }
-
-  /* News items list on the right of the teal panel */
   .tabs-news .tabs-news-panel {
-    align-self: start;
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: -40px;
+    z-index: 2;
   }
 
-  .tabs-news .tabs-news-panel picture img {
-    max-height: 160px;
-    object-fit: cover;
+  .tabs-news-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .tabs-news-card {
+    min-height: 480px;
   }
 }

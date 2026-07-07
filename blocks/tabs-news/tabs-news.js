@@ -1,52 +1,124 @@
-// eslint-disable-next-line import/no-unresolved
-import { toClassName } from '../../scripts/aem.js';
+import { createOptimizedPicture, toClassName } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-export default async function decorate(block) {
-  // build tablist
+function parsePanelItems(panel) {
+  const items = [];
+  let current = null;
+  let viewAll = null;
+
+  [...panel.children].forEach((el) => {
+    if (el.tagName === 'H4') {
+      if (current) items.push(current);
+      current = { heading: el, excerpt: null, date: null, image: null };
+    } else if (el.tagName === 'P') {
+      if (el.querySelector('picture')) {
+        if (current) current.image = el;
+      } else if (el.querySelector('a') && el.textContent.trim().toLowerCase().includes('view all')) {
+        viewAll = el;
+      } else if (current) {
+        if (!current.excerpt) current.excerpt = el;
+        else current.date = el;
+      }
+    }
+  });
+
+  if (current) items.push(current);
+  return { items, viewAll };
+}
+
+function buildNewsCard(item) {
+  const card = document.createElement('article');
+  card.className = 'tabs-news-card';
+
+  if (item.image) {
+    const imageDiv = document.createElement('div');
+    imageDiv.className = 'tabs-news-card-image';
+    const picture = item.image.querySelector('picture');
+    if (picture) imageDiv.append(picture);
+    card.append(imageDiv);
+    item.image.remove();
+  }
+
+  const body = document.createElement('div');
+  body.className = 'tabs-news-card-body';
+
+  if (item.date) {
+    item.date.classList.add('tabs-news-card-date');
+    body.append(item.date);
+  }
+  if (item.heading) body.append(item.heading);
+  if (item.excerpt) {
+    item.excerpt.classList.add('tabs-news-card-excerpt');
+    body.append(item.excerpt);
+  }
+
+  card.append(body);
+  return card;
+}
+
+function buildPanel(panel) {
+  const { items, viewAll } = parsePanelItems(panel);
+  const wrapper = document.createElement('div');
+  wrapper.className = 'tabs-news-cards';
+
+  items.forEach((item) => wrapper.append(buildNewsCard(item)));
+
+  if (viewAll) {
+    viewAll.className = 'tabs-news-view-all';
+    wrapper.append(viewAll);
+  }
+
+  panel.replaceChildren(wrapper);
+}
+
+export default function decorate(block) {
   const tablist = document.createElement('div');
   tablist.className = 'tabs-news-list';
   tablist.setAttribute('role', 'tablist');
 
-  // decorate tabs and tabpanels
-  const tabs = [...block.children].map((child) => child.firstElementChild);
-  tabs.forEach((tab, i) => {
-    const id = toClassName(tab.textContent);
+  const rows = [...block.children];
 
-    // decorate tabpanel
-    const tabpanel = block.children[i];
-    tabpanel.className = 'tabs-news-panel';
-    tabpanel.id = `tabpanel-${id}`;
-    tabpanel.setAttribute('aria-hidden', !!i);
-    tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
-    tabpanel.setAttribute('role', 'tabpanel');
+  rows.forEach((row, i) => {
+    const tabLabel = row.firstElementChild;
+    const contentCell = row.children[1];
+    const id = toClassName(tabLabel.textContent);
 
-    // build tab button
     const button = document.createElement('button');
     button.className = 'tabs-news-tab';
     button.id = `tab-${id}`;
-
-    moveInstrumentation(tab.parentElement, tabpanel.lastElementChild);
-    button.innerHTML = tab.innerHTML;
-
+    button.textContent = tabLabel.textContent.trim();
     button.setAttribute('aria-controls', `tabpanel-${id}`);
-    button.setAttribute('aria-selected', !i);
+    button.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
     button.setAttribute('role', 'tab');
     button.setAttribute('type', 'button');
     button.addEventListener('click', () => {
-      block.querySelectorAll('[role=tabpanel]').forEach((panel) => {
-        panel.setAttribute('aria-hidden', true);
+      block.querySelectorAll('[role=tabpanel]').forEach((panel, idx) => {
+        panel.setAttribute('aria-hidden', idx !== i ? 'true' : 'false');
       });
-      tablist.querySelectorAll('button').forEach((btn) => {
-        btn.setAttribute('aria-selected', false);
+      tablist.querySelectorAll('button').forEach((btn, idx) => {
+        btn.setAttribute('aria-selected', idx === i ? 'true' : 'false');
       });
-      tabpanel.setAttribute('aria-hidden', false);
-      button.setAttribute('aria-selected', true);
     });
     tablist.append(button);
-    tab.remove();
-    moveInstrumentation(button.querySelector('p'), null);
+
+    row.className = 'tabs-news-panel';
+    row.id = `tabpanel-${id}`;
+    row.setAttribute('role', 'tabpanel');
+    row.setAttribute('aria-labelledby', `tab-${id}`);
+    row.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+    row.replaceChildren();
+
+    if (contentCell) {
+      while (contentCell.firstChild) row.append(contentCell.firstChild);
+      buildPanel(row);
+    }
   });
 
   block.prepend(tablist);
+
+  block.querySelectorAll('picture > img').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.closest('picture').replaceWith(optimizedPic);
+  });
 }
