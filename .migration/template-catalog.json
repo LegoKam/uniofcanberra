@@ -1,0 +1,1439 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "representativePages": [
+        "http://www.canberra.edu.au/"
+      ],
+      "urls": [
+        "http://www.canberra.edu.au/",
+        "https://www.canberra.edu.au/",
+        "https://www.canberra.edu.au/campaign"
+      ],
+      "description": "Hero, search and tabbed content with custom sections; the site homepage"
+    },
+    {
+      "name": "carousel-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc",
+        "https://www.canberra.edu.au/faculties/bgl"
+      ],
+      "description": "Carousel-led landing page with several custom content sections"
+    },
+    {
+      "name": "minimal-breadcrumb-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/campus-locations",
+        "https://www.canberra.edu.au/current-students/international-students",
+        "https://www.canberra.edu.au/on-campus/lost-and-found-property",
+        "https://www.canberra.edu.au/faculties",
+        "https://www.canberra.edu.au/research/hdr-student-support"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/campus-locations",
+        "https://www.canberra.edu.au/about-uc/indigenous-leadership",
+        "https://www.canberra.edu.au/about-uc/vcpoetryprize",
+        "https://www.canberra.edu.au/current-students/international-students",
+        "https://www.canberra.edu.au/current-students/other-countries",
+        "https://www.canberra.edu.au/current-students/students-at-tafe-queensland",
+        "https://www.canberra.edu.au/current-students/students-at-uc-sydney-hills",
+        "https://www.canberra.edu.au/faculties",
+        "https://www.canberra.edu.au/library/library-pages-a-z",
+        "https://www.canberra.edu.au/on-campus/campus-tours",
+        "https://www.canberra.edu.au/on-campus/childcare",
+        "https://www.canberra.edu.au/on-campus/collections",
+        "https://www.canberra.edu.au/on-campus/facilities",
+        "https://www.canberra.edu.au/on-campus/health-and-support",
+        "https://www.canberra.edu.au/on-campus/lost-and-found-property",
+        "https://www.canberra.edu.au/on-campus/parking",
+        "https://www.canberra.edu.au/on-campus/transport",
+        "https://www.canberra.edu.au/research/centres/cccr/prizes/uc-vice-chancellors-international-poetry-prize",
+        "https://www.canberra.edu.au/research/hdr-student-support"
+      ],
+      "description": "Breadcrumb-led page with mostly default text content and minimal blocks"
+    },
+    {
+      "name": "content-page-title-cards",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/2023-midwifery-possibilities-conference",
+        "https://www.canberra.edu.au/about-uc/work-at-uc/jobs-at-uc"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/2023-midwifery-possibilities-conference",
+        "https://www.canberra.edu.au/about-uc/events/aubea-2025",
+        "https://www.canberra.edu.au/about-uc/events/employer-connect/employers",
+        "https://www.canberra.edu.au/about-uc/events/hdr-bazaar",
+        "https://www.canberra.edu.au/about-uc/events/uncharted-territory",
+        "https://www.canberra.edu.au/about-uc/fab-cbr/civic-leadership/news/event-unchartered-territory",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/choose-your-uni",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/faculty-study-tours",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/independent-short-courses",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/ncp-scholars",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/student-exchange",
+        "https://www.canberra.edu.au/about-uc/sustainability/get-involved",
+        "https://www.canberra.edu.au/about-uc/sustainability/our-sustainable-future",
+        "https://www.canberra.edu.au/about-uc/sustainability/pathways-to-impact",
+        "https://www.canberra.edu.au/about-uc/work-at-uc/jobs-at-uc",
+        "https://www.canberra.edu.au/anme",
+        "https://www.canberra.edu.au/anme/about-anme",
+        "https://www.canberra.edu.au/anme/about-anme/contact-us",
+        "https://www.canberra.edu.au/anme/about-anme/visit-anme",
+        "https://www.canberra.edu.au/anme/our-collection",
+        "https://www.canberra.edu.au/anme/our-community",
+        "https://www.canberra.edu.au/anme/our-research",
+        "https://www.canberra.edu.au/faculties/health/active-beginnings",
+        "https://www.canberra.edu.au/faculties/health/carat",
+        "https://www.canberra.edu.au/faculties/health/crrt",
+        "https://www.canberra.edu.au/faculties/health/heal/about-heal",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-team",
+        "https://www.canberra.edu.au/faculties/health/mhhp",
+        "https://www.canberra.edu.au/faculties/health/mhhp/people",
+        "https://www.canberra.edu.au/faculties/health/mhhp/projects",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs/aboriginal-and-torres-strait-islander-foundation-program",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs/english-language-courses",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs/graduate-certificate-in-academic-foundations",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs/international-foundation-studies",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs/uc-diplomas",
+        "https://www.canberra.edu.au/future-students/life-at-uc/study-overseas",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/first-aid",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/immunisations",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/manual-handling-face-to-face-training",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/tuberculosis-tb-screening",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/Brisbane",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney/sydney-hills-campus",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney/sydney-hills-campus/bachelor-of-nursing",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney/sydney-hills-campus/campus-map",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney/sydney-hills-campus/contact",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney/sydney-hills-campus/master-of-public-health",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/business/uc-tax-clinic",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/health/nursing",
+        "https://www.canberra.edu.au/future-students/study-options",
+        "https://www.canberra.edu.au/future-students/support-at-uc/support-for-international-students",
+        "https://www.canberra.edu.au/on-campus/shopping",
+        "https://www.canberra.edu.au/research/centres/cdd/about-cdd",
+        "https://www.canberra.edu.au/research/centres/cdd/visit-us",
+        "https://www.canberra.edu.au/research/centres/ceg",
+        "https://www.canberra.edu.au/research/centres/hri/hri-people",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/bfhi",
+        "https://www.canberra.edu.au/research/centres/nmrc",
+        "https://www.canberra.edu.au/research/centres/nmrc/Unpacking-election-misinformation",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-events-and-seminars",
+        "https://www.canberra.edu.au/research/centres/nmrc/research-projects/heartbeat-of-australia",
+        "https://www.canberra.edu.au/research/centres/rc-disc/news-and-events/isdisc-2022",
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training/movement-analysis",
+        "https://www.canberra.edu.au/uc-college",
+        "https://www.canberra.edu.au/uc-college/about-uc-college",
+        "https://www.canberra.edu.au/uc-college/about-uc-college/contact-us",
+        "https://www.canberra.edu.au/uc-college/about-uc-college/our-people",
+        "https://www.canberra.edu.au/uc-college/courses",
+        "https://www.canberra.edu.au/uc-college/courses/course-dates",
+        "https://www.canberra.edu.au/uc-college/courses/course-fees",
+        "https://www.canberra.edu.au/uc-college/courses/international-scholarships",
+        "https://www.canberra.edu.au/uc-college/current-students",
+        "https://www.canberra.edu.au/uc-college/future-students",
+        "https://www.canberra.edu.au/uc-college/future-students/applying-to-uc-college",
+        "https://www.canberra.edu.au/uc-college/future-students/entry-requirements"
+      ],
+      "description": "Title band, breadcrumbs, then card-based body content"
+    },
+    {
+      "name": "competition-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/3mt"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/3mt"
+      ],
+      "description": "Title band, breadcrumbs and cards for a competition landing page"
+    },
+    {
+      "name": "competition-archive",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/3mt/2023"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/3mt/2023"
+      ],
+      "description": "Title band, breadcrumbs and cards for an archived competition year"
+    },
+    {
+      "name": "competition-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/3mt/2024"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/3mt/2024",
+        "https://www.canberra.edu.au/about-uc/events/3mt/2025"
+      ],
+      "description": "Title band, breadcrumbs and cards for a competition detail page"
+    },
+    {
+      "name": "content-page-hero",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/aubea-2025/aubea-presidents-message",
+        "https://www.canberra.edu.au/course/322AA/9/2026",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/vtsp",
+        "https://www.canberra.edu.au/alumni/contact-us/update-your-details"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/aubea-2025/aubea-presidents-message",
+        "https://www.canberra.edu.au/about-uc/events/aubea-2025/registration-costs",
+        "https://www.canberra.edu.au/about-uc/events/aubea-2025/sponsors",
+        "https://www.canberra.edu.au/about-uc/events/aubea-2025/venue-and-accommodation",
+        "https://www.canberra.edu.au/about-uc/events/creative-competition/participation-guide",
+        "https://www.canberra.edu.au/about-uc/events/creative-competition/prizes",
+        "https://www.canberra.edu.au/about-uc/events/creative-competition/terms-and-conditions",
+        "https://www.canberra.edu.au/about-uc/events/uncharted-territory/play-symposium",
+        "https://www.canberra.edu.au/about-uc/fab-cbr/civic-leadership/news/stromlo-running-festival",
+        "https://www.canberra.edu.au/about-uc/fab-cbr/civic-leadership/news/uc-and-act-civic-partnership",
+        "https://www.canberra.edu.au/about-uc/fab-cbr/civic-leadership/news/uc-announces-new-indigenous-leadership-strategy",
+        "https://www.canberra.edu.au/about-uc/governance/academic-board",
+        "https://www.canberra.edu.au/about-uc/governance/corporate-governance-review",
+        "https://www.canberra.edu.au/about-uc/governance/elections",
+        "https://www.canberra.edu.au/about-uc/governance/honorary-appointments",
+        "https://www.canberra.edu.au/about-uc/governance/modern-slavery",
+        "https://www.canberra.edu.au/about-uc/governance/office-of-the-chancellor",
+        "https://www.canberra.edu.au/about-uc/governance/office-of-the-chancellor/chancellor",
+        "https://www.canberra.edu.au/about-uc/governance/university-council",
+        "https://www.canberra.edu.au/about-uc/governance/university-council/council-committees",
+        "https://www.canberra.edu.au/about-uc/governance/university-council/council-committees/audit-and-risk-management-committee",
+        "https://www.canberra.edu.au/about-uc/governance/university-council/council-committees/finance-committee",
+        "https://www.canberra.edu.au/about-uc/governance/university-council/council-committees/nominations-and-senior-appointments-committee",
+        "https://www.canberra.edu.au/about-uc/governance/university-council/council-committees/planning-and-development-committee",
+        "https://www.canberra.edu.au/about-uc/governance/university-council/council-members",
+        "https://www.canberra.edu.au/about-uc/media/find-an-expert/find-an-expert-sub-page1",
+        "https://www.canberra.edu.au/about-uc/media/find-an-expert/find-an-expert-sub-page2",
+        "https://www.canberra.edu.au/about-uc/ngunnawal-centre/academic-resources",
+        "https://www.canberra.edu.au/about-uc/ngunnawal-centre/academic-resources/tutoring-program-application",
+        "https://www.canberra.edu.au/about-uc/ngunnawal-centre/career-connections",
+        "https://www.canberra.edu.au/about-uc/ngunnawal-centre/cultural-support",
+        "https://www.canberra.edu.au/about-uc/ngunnawal-centre/physical-mental-wellbeing",
+        "https://www.canberra.edu.au/about-uc/ngunnawal-centre/scholarships-and-financial-resources",
+        "https://www.canberra.edu.au/about-uc/senior-management",
+        "https://www.canberra.edu.au/about-uc/senior-management/executive-staff",
+        "https://www.canberra.edu.au/about-uc/senior-management/organisational-structure",
+        "https://www.canberra.edu.au/about-uc/strategy/dmp/about-dmp",
+        "https://www.canberra.edu.au/about-uc/strategy/dmp/dmp-initiatives",
+        "https://www.canberra.edu.au/about-uc/strategy/dmp/dmp-principles",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/events",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/funding-your-trip",
+        "https://www.canberra.edu.au/about-uc/strategy/global-learning/pre-departure-checklist",
+        "https://www.canberra.edu.au/about-uc/work-at-uc/financial-and-corporate-benefits",
+        "https://www.canberra.edu.au/about-uc/work-at-uc/flexibility-and-leave-benefits",
+        "https://www.canberra.edu.au/about-uc/work-at-uc/job-application-process",
+        "https://www.canberra.edu.au/about-uc/work-at-uc/training-and-career-development",
+        "https://www.canberra.edu.au/about-uc/work-at-uc/workplace-culture-and-wellbeing",
+        "https://www.canberra.edu.au/alumni/career-support/webinar-series",
+        "https://www.canberra.edu.au/alumni/contact-us/degree-verification",
+        "https://www.canberra.edu.au/alumni/contact-us/frequently-asked-questions",
+        "https://www.canberra.edu.au/alumni/contact-us/postnominal-titles",
+        "https://www.canberra.edu.au/alumni/contact-us/request-documents",
+        "https://www.canberra.edu.au/alumni/contact-us/update-your-details",
+        "https://www.canberra.edu.au/alumni/engage-with-uc/book-club",
+        "https://www.canberra.edu.au/alumni/engage-with-uc/personal-histories-project",
+        "https://www.canberra.edu.au/alumni/engage-with-uc/volunteer",
+        "https://www.canberra.edu.au/alumni/our-community/alumni-profiles",
+        "https://www.canberra.edu.au/alumni/our-community/business-profiles",
+        "https://www.canberra.edu.au/alumni/our-community/distinguished-alumni",
+        "https://www.canberra.edu.au/alumni/our-community/uc-staff-alumni-network",
+        "https://www.canberra.edu.au/anme/about-anme/anme-news",
+        "https://www.canberra.edu.au/anme/about-anme/anme-news/news-archive",
+        "https://www.canberra.edu.au/anme/about-anme/our-people",
+        "https://www.canberra.edu.au/anme/our-collection/anme-members",
+        "https://www.canberra.edu.au/anme/our-collection/anme-members/blackheath-and-thornburgh-college-archives",
+        "https://www.canberra.edu.au/anme/our-collection/anme-members/ceduna-school-house-museum",
+        "https://www.canberra.edu.au/anme/our-collection/anme-members/hutchins-school-archives-and-heritage-collection",
+        "https://www.canberra.edu.au/anme/our-collection/collection-organisation",
+        "https://www.canberra.edu.au/anme/our-collection/physical-collection",
+        "https://www.canberra.edu.au/anme/our-collection/physical-collection/heritage-textbook-collection",
+        "https://www.canberra.edu.au/anme/our-community/Supporting-australian-school-museums",
+        "https://www.canberra.edu.au/anme/our-community/contribute-to-anme",
+        "https://www.canberra.edu.au/anme/our-community/contribute-to-anme/anme-membership",
+        "https://www.canberra.edu.au/anme/our-community/contribute-to-anme/donations-and-bequests",
+        "https://www.canberra.edu.au/anme/our-community/contribute-to-anme/friends-of-anme",
+        "https://www.canberra.edu.au/anme/our-community/contribute-to-anme/share-your-story-or-memorabilia",
+        "https://www.canberra.edu.au/anme/our-community/schooling-in-australia",
+        "https://www.canberra.edu.au/anme/our-community/schooling-in-australia/historical-schooling-gallery",
+        "https://www.canberra.edu.au/anme/our-community/schooling-in-australia/school-museums-list",
+        "https://www.canberra.edu.au/anme/our-research/anme-publications",
+        "https://www.canberra.edu.au/anme/our-research/distinguished-educators",
+        "https://www.canberra.edu.au/anme/our-research/research-projects",
+        "https://www.canberra.edu.au/course/193JA/3/2027",
+        "https://www.canberra.edu.au/course/215CO/2/2026",
+        "https://www.canberra.edu.au/course/322AA/9/2026",
+        "https://www.canberra.edu.au/course/323JA/5/2026",
+        "https://www.canberra.edu.au/course/742AA/3/2027",
+        "https://www.canberra.edu.au/course/772AA/7/2026",
+        "https://www.canberra.edu.au/course/973AA/7/2027",
+        "https://www.canberra.edu.au/course/ARB007/2/2026",
+        "https://www.canberra.edu.au/course/ARB009/2/2027",
+        "https://www.canberra.edu.au/course/ARB105/1/2026",
+        "https://www.canberra.edu.au/course/ARB401/1/2026",
+        "https://www.canberra.edu.au/course/ARG501/2/2026",
+        "https://www.canberra.edu.au/course/EDC101/1/2026",
+        "https://www.canberra.edu.au/course/EDM001/1/2026",
+        "https://www.canberra.edu.au/course/EDM103/1/2026",
+        "https://www.canberra.edu.au/course/EDM301/1/2026",
+        "https://www.canberra.edu.au/course/EDS001/2/2026",
+        "https://www.canberra.edu.au/course/EDS001/2/2027",
+        "https://www.canberra.edu.au/course/ITM001/2/2027",
+        "https://www.canberra.edu.au/course/MGB103/1/2026",
+        "https://www.canberra.edu.au/course/MGB108/2/2027",
+        "https://www.canberra.edu.au/course/MGM102/2/2026",
+        "https://www.canberra.edu.au/course/MGSC02/2/2027",
+        "https://www.canberra.edu.au/course/MXM001/1/2028",
+        "https://www.canberra.edu.au/course/SCC101/1/2026",
+        "https://www.canberra.edu.au/course/SCC104/1/2026",
+        "https://www.canberra.edu.au/course/SCM401/1/2026",
+        "https://www.canberra.edu.au/credit/19230",
+        "https://www.canberra.edu.au/credit/20671",
+        "https://www.canberra.edu.au/credit/21334",
+        "https://www.canberra.edu.au/credit/21375",
+        "https://www.canberra.edu.au/credit/22010",
+        "https://www.canberra.edu.au/credit/23071",
+        "https://www.canberra.edu.au/credit/23076",
+        "https://www.canberra.edu.au/credit/23132",
+        "https://www.canberra.edu.au/credit/23336",
+        "https://www.canberra.edu.au/credit/23950",
+        "https://www.canberra.edu.au/credit/24213",
+        "https://www.canberra.edu.au/credit/24219",
+        "https://www.canberra.edu.au/credit/25857",
+        "https://www.canberra.edu.au/credit/25953",
+        "https://www.canberra.edu.au/credit/26593",
+        "https://www.canberra.edu.au/credit/26595",
+        "https://www.canberra.edu.au/credit/26735",
+        "https://www.canberra.edu.au/credit/29139",
+        "https://www.canberra.edu.au/credit/29900",
+        "https://www.canberra.edu.au/credit/30458",
+        "https://www.canberra.edu.au/credit/30922",
+        "https://www.canberra.edu.au/credit/31069",
+        "https://www.canberra.edu.au/credit/31098",
+        "https://www.canberra.edu.au/credit/31104",
+        "https://www.canberra.edu.au/credit/31944",
+        "https://www.canberra.edu.au/credit/32092",
+        "https://www.canberra.edu.au/credit/32120",
+        "https://www.canberra.edu.au/credit/33248",
+        "https://www.canberra.edu.au/credit/34047",
+        "https://www.canberra.edu.au/credit/34269",
+        "https://www.canberra.edu.au/credit/34774",
+        "https://www.canberra.edu.au/credit/35249",
+        "https://www.canberra.edu.au/faculties/bgl/ozeugg",
+        "https://www.canberra.edu.au/faculties/bgl/ozeugg/activities-and-teaching",
+        "https://www.canberra.edu.au/faculties/bgl/ozeugg/our-people",
+        "https://www.canberra.edu.au/faculties/health/active-beginnings/activity-program",
+        "https://www.canberra.edu.au/faculties/health/active-beginnings/our-people",
+        "https://www.canberra.edu.au/faculties/health/active-beginnings/resources",
+        "https://www.canberra.edu.au/faculties/health/carat/about-carat",
+        "https://www.canberra.edu.au/faculties/health/carat/carat-research",
+        "https://www.canberra.edu.au/faculties/health/carat/carat-team",
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/about-cpop",
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/clinical-facilitators",
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/health-aged-care-providers",
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/nursing-students",
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/student-preceptor-awards",
+        "https://www.canberra.edu.au/faculties/health/crrt/about-crrt",
+        "https://www.canberra.edu.au/faculties/health/crrt/crrt-research",
+        "https://www.canberra.edu.au/faculties/health/crrt/crrt-team",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/CANBREATHE",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/ClimateRes",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/assessment-of-heat-effects",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/bushfires-health-risk",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/climate-disasters",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/climate-environment-infectious-disease",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/heal-haze",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/health-sector-decarbonisation",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/healthy-active-travel",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/healthy-air",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/supporting-anhcs",
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/wood-heaters-trial",
+        "https://www.canberra.edu.au/faculties/health/mhhp/projects/yocom",
+        "https://www.canberra.edu.au/future-students/accommodation",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/admissions-comparison-data",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/domestic-student-applications",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/early-offer-scheme",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/early-offer-scheme/supplementary-form",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/international-student-applications",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/research-applications",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/supporting-documents-for-applications",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/aspire-uc-schools",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-careers-advisors",
+        "https://www.canberra.edu.au/future-students/defer-your-offer",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/academic-entry-requirements",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/academic-entry-requirements/international-qualifications",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/early-offer-scheme",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/portfolio-entry",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/cpl-postgrad",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/cpl-postgrad/all-credit-transfer-arrangements",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/cpl-undergrad",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/cpl-undergrad/all-credit-transfer-arrangements",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/cpl-undergrad/experience-assessment",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/work-recognition-postgraduate",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/work-recognition-postgraduate/eligible-courses-work-based-entry",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/prior-work-study-recognition/work-recognition-undergraduate",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/schools-recommendation-scheme",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/special-consideration",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/special-consideration/atar-adjustment-factors",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/special-consideration/atar-adjustment-factors/educational-access-scheme",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/special-consideration/atar-adjustment-factors/university-priority-groups",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/special-consideration/atar-adjustment-factors/year-12-adjustment-factors",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/vet-pathways",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/vtsp",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/vtsp/credit-assessed-courses",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/vtsp/support-for-defence-members",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/bridging-courses",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/bridging-courses/aboriginal-torres-trait-islander-foundation-program",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/bridging-courses/grad-cert-academic-foundations",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/bridging-courses/international-foundation-studies-program",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/bridging-courses/uc-connect",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/bridging-courses/uc-diplomas",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/bridging-courses/uc-prep",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/core-admission-requirements",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/core-admission-requirements/english-language-requirements",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/core-admission-requirements/genuine-student-requirements",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/core-admission-requirements/inherent-requirements",
+        "https://www.canberra.edu.au/future-students/future-student-enquiries",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/app",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/educational-access-scheme",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/portfolio-entry",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/portfolio-entry/portfolio-entry-form",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/professional-pathway-entry",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/schools-recommendation-scheme",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/special-consideration",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/university-priority-groups",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/vtsp",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/vtsp/credit-assessed-courses",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/vtsp/support",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/year-12-adjustment-factors",
+        "https://www.canberra.edu.au/future-students/get-into-uc/entry-requirements",
+        "https://www.canberra.edu.au/future-students/get-into-uc/entry-requirements/academic-entry-requirements",
+        "https://www.canberra.edu.au/future-students/get-into-uc/entry-requirements/english-language-requirements",
+        "https://www.canberra.edu.au/future-students/get-into-uc/entry-requirements/genuine-student-requirements",
+        "https://www.canberra.edu.au/future-students/get-into-uc/entry-requirements/inherent-requirements",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs/uc-connect",
+        "https://www.canberra.edu.au/future-students/get-into-uc/pathways-programs/uc-prep",
+        "https://www.canberra.edu.au/future-students/information-for",
+        "https://www.canberra.edu.au/future-students/life-at-uc/accommodation",
+        "https://www.canberra.edu.au/future-students/life-at-uc/campus-tours",
+        "https://www.canberra.edu.au/future-students/life-at-uc/campus-tours/virtual-campus-tour",
+        "https://www.canberra.edu.au/future-students/life-at-uc/cost-of-living",
+        "https://www.canberra.edu.au/future-students/life-at-uc/life-in-australia",
+        "https://www.canberra.edu.au/future-students/life-at-uc/living-in-canberra",
+        "https://www.canberra.edu.au/future-students/life-at-uc/on-campus",
+        "https://www.canberra.edu.au/future-students/life-at-uc/sports-and-fitness",
+        "https://www.canberra.edu.au/future-students/life-at-uc/student-life",
+        "https://www.canberra.edu.au/future-students/start-at-uc/after-enrolment-tasks",
+        "https://www.canberra.edu.au/future-students/start-at-uc/domestic-student-offers",
+        "https://www.canberra.edu.au/future-students/start-at-uc/enrol-in-units",
+        "https://www.canberra.edu.au/future-students/start-at-uc/international-student-offers",
+        "https://www.canberra.edu.au/future-students/start-at-uc/orientation",
+        "https://www.canberra.edu.au/future-students/start-at-uc/overseas-student-health-cover",
+        "https://www.canberra.edu.au/future-students/start-at-uc/start-research",
+        "https://www.canberra.edu.au/future-students/start-at-uc/student-visas",
+        "https://www.canberra.edu.au/future-students/start-at-uc/unique-student-identifier",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/768AA",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/How-to-become-a-qualified-dietitian",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/Launch-your-content-creation-career-with-a-business-degree",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/Six-reasons-why-living-on-campus-sets-you-up-for-success-at-uni",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/True-and-False-Take-our-Data-Science-quiz",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/biomedical-vs-medical",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/esl-certification",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/hands-on-science",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/is-study-pg-worth",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/it-specialisation",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/jobs-bachelor-of-science",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/life-as-medical-science-student",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/teaching-area",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/the-secret-to-affordable-uni-life-away-from-home--it-s-closer-th",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/type-of-teacher",
+        "https://www.canberra.edu.au/future-students/study-at-uc/blog-articles/understanding-your-early-offer",
+        "https://www.canberra.edu.au/future-students/study-at-uc/credit-transfer",
+        "https://www.canberra.edu.au/future-students/study-at-uc/fees-and-costs",
+        "https://www.canberra.edu.au/future-students/study-at-uc/fees-and-costs/domestic-fees-and-costs",
+        "https://www.canberra.edu.au/future-students/study-at-uc/fees-and-costs/international-fees-and-costs",
+        "https://www.canberra.edu.au/future-students/study-at-uc/fees-and-costs/research-fees-and-costs",
+        "https://www.canberra.edu.au/future-students/study-at-uc/fees-and-costs/student-services-and-amenities-fee",
+        "https://www.canberra.edu.au/future-students/study-at-uc/fees-and-costs/student-services-and-amenities-fee/past-years-use-of-ssaf",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/canberra-cheapest-student-city",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/careers-uc-support-for-international-students",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/david-story",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/everything-you-need-to-know-about-life-at-uc-",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/graduate-certificate-in-academic-foundations",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/learning-english-from-the-experts",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/life-in-city",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/spring-activities-in-canberra",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/support-for-international-students-at-uc",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/you-ve-graduated--what-s-next-",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/your-guide-to--studying-technology-",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/international-locations",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney/tafe-nsw-northern-sydney-st-leonards",
+        "https://www.canberra.edu.au/future-students/study-at-uc/research-students/finding-a-supervisor",
+        "https://www.canberra.edu.au/future-students/study-at-uc/research-students/research-degrees",
+        "https://www.canberra.edu.au/future-students/study-at-uc/scholarships",
+        "https://www.canberra.edu.au/future-students/study-at-uc/scholarships/snow-scholarships/about-snow-scholarships",
+        "https://www.canberra.edu.au/future-students/study-at-uc/scholarships/snow-scholarships/contact-snow-scholarships",
+        "https://www.canberra.edu.au/future-students/study-at-uc/scholarships/snow-scholarships/snow-scholar-attributes",
+        "https://www.canberra.edu.au/future-students/study-at-uc/scholarships/snow-scholarships/snow-scholarships-application",
+        "https://www.canberra.edu.au/future-students/study-at-uc/scholarships/snow-scholarships/snow-scholarships-eligibility",
+        "https://www.canberra.edu.au/future-students/study-at-uc/scholarships/snow-scholarships/snow-scholarships-features-benefits",
+        "https://www.canberra.edu.au/future-students/study-at-uc/student-exchange-and-study-abroad/exchange-program-at-uc",
+        "https://www.canberra.edu.au/future-students/study-at-uc/student-exchange-and-study-abroad/study-abroad-at-uc",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/business",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/business/uc-tax-clinic/collection-notice",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/business/uc-tax-clinic/tax-clinic-form",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/communication-and-media",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/education",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/education/the-uc-difference",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/government",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/health",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/health/nursing/bachelor-of-nursing",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/science",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/technology",
+        "https://www.canberra.edu.au/future-students/support-at-uc/academic-progress",
+        "https://www.canberra.edu.au/future-students/support-at-uc/careers-support",
+        "https://www.canberra.edu.au/future-students/support-at-uc/disability-and-ongoing-health-conditions",
+        "https://www.canberra.edu.au/future-students/support-at-uc/elite-athletes",
+        "https://www.canberra.edu.au/future-students/support-at-uc/financial-support",
+        "https://www.canberra.edu.au/future-students/support-at-uc/financial-support/act-government-study-incentive-grant-program",
+        "https://www.canberra.edu.au/future-students/support-at-uc/health-and-medical-care",
+        "https://www.canberra.edu.au/future-students/support-at-uc/student-success-programs",
+        "https://www.canberra.edu.au/future-students/support-at-uc/student-wellbeing",
+        "https://www.canberra.edu.au/future-students/support-at-uc/study-help",
+        "https://www.canberra.edu.au/future-students/support-at-uc/uc-thrive",
+        "https://www.canberra.edu.au/future-students/support-at-uc/uc-thrive/become-a-mentee",
+        "https://www.canberra.edu.au/future-students/support-at-uc/uc-thrive/become-a-mentor",
+        "https://www.canberra.edu.au/future-students/support-at-uc/withdrawing-from-a-course",
+        "https://www.canberra.edu.au/future-students/test/list-courses",
+        "https://www.canberra.edu.au/future-students/test/list-courses/socialkit",
+        "https://www.canberra.edu.au/future-students/test/test-header",
+        "https://www.canberra.edu.au/future-students/test/test-news",
+        "https://www.canberra.edu.au/future-students/test/testing-production/blog-test/Cyber-security-training-hands-on-learning-experience",
+        "https://www.canberra.edu.au/major/BM0009/1",
+        "https://www.canberra.edu.au/major/BM0014/1",
+        "https://www.canberra.edu.au/major/BM0024/1",
+        "https://www.canberra.edu.au/major/BM0040/2",
+        "https://www.canberra.edu.au/major/BM0048/1",
+        "https://www.canberra.edu.au/major/BN0006/1",
+        "https://www.canberra.edu.au/major/MJ0008/2",
+        "https://www.canberra.edu.au/major/MJ0012/2",
+        "https://www.canberra.edu.au/major/MJ0015/3",
+        "https://www.canberra.edu.au/major/MJ0041/2",
+        "https://www.canberra.edu.au/major/MJ0045/1",
+        "https://www.canberra.edu.au/major/MJ0058/1",
+        "https://www.canberra.edu.au/major/MJ0059/1",
+        "https://www.canberra.edu.au/major/MJ0069/1",
+        "https://www.canberra.edu.au/major/MJ0078/1",
+        "https://www.canberra.edu.au/major/MJ0087/1",
+        "https://www.canberra.edu.au/major/MJ0088/3",
+        "https://www.canberra.edu.au/major/MJ0093/1",
+        "https://www.canberra.edu.au/major/MJ0132/1",
+        "https://www.canberra.edu.au/major/MJ0144/1",
+        "https://www.canberra.edu.au/major/MJ0203/2",
+        "https://www.canberra.edu.au/major/MJ0206/1",
+        "https://www.canberra.edu.au/major/MJ0209/1",
+        "https://www.canberra.edu.au/major/MJ0210/1",
+        "https://www.canberra.edu.au/major/MJ0227/1",
+        "https://www.canberra.edu.au/major/MJ0265/1",
+        "https://www.canberra.edu.au/major/MJ0278/1",
+        "https://www.canberra.edu.au/major/MJ0296/1",
+        "https://www.canberra.edu.au/major/MJ0300/1",
+        "https://www.canberra.edu.au/major/MN0032/4",
+        "https://www.canberra.edu.au/major/MN0033/1",
+        "https://www.canberra.edu.au/major/MN0037/1",
+        "https://www.canberra.edu.au/major/MN0053/1",
+        "https://www.canberra.edu.au/major/MN0079/1",
+        "https://www.canberra.edu.au/major/MN0083/1",
+        "https://www.canberra.edu.au/major/MN0086/2",
+        "https://www.canberra.edu.au/major/MN0096/1",
+        "https://www.canberra.edu.au/major/MN0110/1",
+        "https://www.canberra.edu.au/major/MN0120/1",
+        "https://www.canberra.edu.au/major/MN0125/1",
+        "https://www.canberra.edu.au/major/MN0155/1",
+        "https://www.canberra.edu.au/major/MN0180/1",
+        "https://www.canberra.edu.au/major/SM0004/1",
+        "https://www.canberra.edu.au/major/SM0007/1",
+        "https://www.canberra.edu.au/major/SM0007/2",
+        "https://www.canberra.edu.au/major/SM0015/1",
+        "https://www.canberra.edu.au/major/SM0016/1",
+        "https://www.canberra.edu.au/major/SM0025/1",
+        "https://www.canberra.edu.au/major/SM0033/1",
+        "https://www.canberra.edu.au/major/SM0061/1",
+        "https://www.canberra.edu.au/major/SM0067/2",
+        "https://www.canberra.edu.au/major/SM0087/1",
+        "https://www.canberra.edu.au/research/about-uc-research",
+        "https://www.canberra.edu.au/research/about-uc-research/contact-research-team",
+        "https://www.canberra.edu.au/research/about-uc-research/research-capabilities",
+        "https://www.canberra.edu.au/research/about-uc-research/working-in-research",
+        "https://www.canberra.edu.au/research/centres",
+        "https://www.canberra.edu.au/research/centres/case/research-projects",
+        "https://www.canberra.edu.au/research/centres/case/research-projects/spatial-intervention",
+        "https://www.canberra.edu.au/research/centres/cccr/about-cccr",
+        "https://www.canberra.edu.au/research/centres/cccr/about-cccr/our-people",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/arts-and-health",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/creative-sustainable-communities",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/first-nations-collaborative-research",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/future-heritage",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/journals",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/arrts-2024-2028",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/city-place-management",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/act-creative-industries",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/creative-recovery-and-resilience-forum",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/digital-modelling-for-climate-change",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/five-whole-suburb-play-reviews",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/ginninderry-living-lab-research-framework",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/haig-park-experiments",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/play-creativity-and-wellbeing-project",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/regeneration",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/surface-urban-art-festival",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/sustainable-shine-dome-overview",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/terrestrial-urbanism-creative-work",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/completed-research-projects/we-come-from-the-past",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/conserving-heritage-in-stone-arc-discovery-project",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/fossil-fuels-heritage",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/nuclear-nation-arc-linkage-project",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/robot-muscians",
+        "https://www.canberra.edu.au/research/centres/cccr/cccr-research/research-projects/upcyc",
+        "https://www.canberra.edu.au/research/centres/cccr/events-and-seminars",
+        "https://www.canberra.edu.au/research/centres/cccr/events-and-seminars/past-events-and-seminars/hdr-study-first-nations-australians-way",
+        "https://www.canberra.edu.au/research/centres/cccr/events-and-seminars/past-events-and-seminars/insignificance-symposium",
+        "https://www.canberra.edu.au/research/centres/cccr/events-and-seminars/past-events-and-seminars/out-of-the-box",
+        "https://www.canberra.edu.au/research/centres/cccr/events-and-seminars/past-events-and-seminars/platform-blues",
+        "https://www.canberra.edu.au/research/centres/cccr/events-and-seminars/past-events-and-seminars/poetry-on-prescription",
+        "https://www.canberra.edu.au/research/centres/cccr/postgraduate-programs",
+        "https://www.canberra.edu.au/research/centres/cccr/postgraduate-programs/donald-horne-creative-and-cultural-fellows",
+        "https://www.canberra.edu.au/research/centres/cccr/postgraduate-programs/prospective-hdr-students",
+        "https://www.canberra.edu.au/research/centres/cccr/prizes",
+        "https://www.canberra.edu.au/research/centres/cccr/prizes/five-islands-prize",
+        "https://www.canberra.edu.au/research/centres/cccr/prizes/health-poetry-prize",
+        "https://www.canberra.edu.au/research/centres/cccr/reports-and-resources",
+        "https://www.canberra.edu.au/research/centres/cccr/reports-and-resources/bibliographies",
+        "https://www.canberra.edu.au/research/centres/cccr/seminar-series/past-events/hdr-study-first-nations-australians-way",
+        "https://www.canberra.edu.au/research/centres/cccr/seminar-series/past-events/insignificance-symposium",
+        "https://www.canberra.edu.au/research/centres/cccr/seminar-series/past-events/out-of-the-box",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events/deliberative-democracy-summer-school-2015",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events/deliberative-democracy-summer-school-2017",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events/deliberative-democracy-summer-school-2018",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events/deliberative-democracy-summer-school-2020",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events/deliberative-democracy-summer-school-2022",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events/deliberative-democracy-summer-school-2024",
+        "https://www.canberra.edu.au/research/centres/cdd/cdd-events/deliberative-democracy-summer-school-2025",
+        "https://www.canberra.edu.au/research/centres/cdd/study-with-us",
+        "https://www.canberra.edu.au/research/centres/cics/cics-news-and-media",
+        "https://www.canberra.edu.au/research/centres/cics/fixing-what-medicine-cant",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/DASSH-trial",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/cws",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/-interactive-mapping",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/Conceptual-frameworks-and-models",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/atlas-of-health-and-social-care",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/esms-desde",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/esms-desde/esms-desde-international-projects",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/esms-desde/esms-desde-mapping-atlases",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/esms-desde/esms-desde-systematic-reviews",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/esms-desde/esms-desde-tools",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/glocal-metadata-repository",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/resources",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/measure-it-increasing-the-physical-activity-levels-of-people-with-heart-disease",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/regional-wellbeing-survey/forestry-in-australia",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/regional-wellbeing-survey/regional-wellbeing-results-reports",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/regional-wellbeing-survey/support-the-regional-wellbeing-survey",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/social-work-in-general-practice",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/the-schoolyard-greenprint/participate-in-research",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes/implementation-and-health-services-research",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes/mental-health-policy-unit",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes/mental-health-policy-unit/1000-cities-challenge/reviewed-1000-cities-challenge-policies-list",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes/mental-health-policy-unit/mhpu-resources",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes/research-labs",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes/wellbeing-and-resilience-unit",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-events-and-seminars/bcm-in-social-media",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-events-and-seminars/census-and-the-creative-workforce",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-events-and-seminars/digital-commons-for-the-ecological-transition",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-events-and-seminars/reckoning-with-investigative-journalism",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-events-and-seminars/warwick-blood-a-journey",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-events-and-seminars/we-endure-it-until-we-grow-a-thick-skin",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/2022-researcher-of-the-year",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/amplifying-indigenous-news",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/building-resilience",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/digital-news-report-australia-2022",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/news-on-social-media-lowers-trust",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/professor-kerry-mccallum-wins-research-excellence-award",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/professor-sora-park-joins-college-of-experts",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/regional-news-consumers-are-happier",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/sense-of-belonging",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/social-media-in-an-emergency",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/social-media-news-consumption",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/uc-community-participates-in-ribbon-tying-ceremony",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/uc-industry-partnership-with-SBS",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/uc-researchers-to-develop-guidance-for-reporting-child-sexual-abuse",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news/vale-richard-warwick-blood",
+        "https://www.canberra.edu.au/research/centres/nmrc/our-people",
+        "https://www.canberra.edu.au/research/centres/nmrc/our-reports",
+        "https://www.canberra.edu.au/research/centres/rc-disc/about-rc-disc",
+        "https://www.canberra.edu.au/research/centres/rc-disc/news-and-events",
+        "https://www.canberra.edu.au/research/centres/rc-disc/our-people",
+        "https://www.canberra.edu.au/research/centres/rc-disc/research",
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training",
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training/heat-training",
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training/physiological-assessment-and-performance-testing",
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training/physiological-assessment-and-performance-testing/physiological-field-testing",
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training/physiological-assessment-and-performance-testing/physiological-lab-testing",
+        "https://www.canberra.edu.au/research/centres/uc-rise/education",
+        "https://www.canberra.edu.au/research/centres/uc-rise/education/phd-and-honours-opportunities",
+        "https://www.canberra.edu.au/research/centres/uc-rise/education/school-visits",
+        "https://www.canberra.edu.au/research/centres/uc-rise/research",
+        "https://www.canberra.edu.au/research/centres/uc-rise/research/applied-biomechanics",
+        "https://www.canberra.edu.au/research/centres/uc-rise/research/collaborations",
+        "https://www.canberra.edu.au/research/centres/uc-rise/research/hdr-research-projects",
+        "https://www.canberra.edu.au/research/centres/uc-rise/ucrise-people",
+        "https://www.canberra.edu.au/research/contribute-to-research",
+        "https://www.canberra.edu.au/research/contribute-to-research/research-participation",
+        "https://www.canberra.edu.au/research/contribute-to-research/research-partnerships",
+        "https://www.canberra.edu.au/research/engage-uc",
+        "https://www.canberra.edu.au/research/news",
+        "https://www.canberra.edu.au/research/research-capabilities",
+        "https://www.canberra.edu.au/research/research-contacts",
+        "https://www.canberra.edu.au/research/research-experts",
+        "https://www.canberra.edu.au/research/research-impact",
+        "https://www.canberra.edu.au/research/research-impact/impact-stories/canberras-modernist-architectural-identity",
+        "https://www.canberra.edu.au/research/research-impact/impact-stories/green-and-golden-bell-frog-phase-1",
+        "https://www.canberra.edu.au/research/research-impact/impact-stories/haig-park-renewal",
+        "https://www.canberra.edu.au/research/research-impact/impact-stories/healthy-canberra-waterways",
+        "https://www.canberra.edu.au/research/research-impact/impact-stories/modelling-housing-affordability",
+        "https://www.canberra.edu.au/research/research-impact/impact-stories/organ-donation-policy-advocacy",
+        "https://www.canberra.edu.au/research/research-news-and-events",
+        "https://www.canberra.edu.au/scholarships/frequently-asked-questions",
+        "https://www.canberra.edu.au/uc-college/future-students/orientation",
+        "https://www.canberra.edu.au/unit/10039/3/2027",
+        "https://www.canberra.edu.au/unit/10044/4/2026",
+        "https://www.canberra.edu.au/unit/10054/2/2026",
+        "https://www.canberra.edu.au/unit/10087/3/2026",
+        "https://www.canberra.edu.au/unit/10088/2/2027",
+        "https://www.canberra.edu.au/unit/10129/2/2026",
+        "https://www.canberra.edu.au/unit/10135/2/2026",
+        "https://www.canberra.edu.au/unit/10137/1/2026",
+        "https://www.canberra.edu.au/unit/10140/2/2026",
+        "https://www.canberra.edu.au/unit/10203/2/2026",
+        "https://www.canberra.edu.au/unit/10203/2/2027",
+        "https://www.canberra.edu.au/unit/10206/2/2027",
+        "https://www.canberra.edu.au/unit/10266/3/2027",
+        "https://www.canberra.edu.au/unit/10291/2/2026",
+        "https://www.canberra.edu.au/unit/10335/4/2026",
+        "https://www.canberra.edu.au/unit/10358/1/2027",
+        "https://www.canberra.edu.au/unit/10371/1/2027",
+        "https://www.canberra.edu.au/unit/10411/1/2026",
+        "https://www.canberra.edu.au/unit/10437/1/2027",
+        "https://www.canberra.edu.au/unit/10445/1/2026",
+        "https://www.canberra.edu.au/unit/10445/1/2027",
+        "https://www.canberra.edu.au/unit/10454/1/2027",
+        "https://www.canberra.edu.au/unit/11025/1/2027",
+        "https://www.canberra.edu.au/unit/11041/1/2027",
+        "https://www.canberra.edu.au/unit/11049/1/2027",
+        "https://www.canberra.edu.au/unit/11052/1/2027",
+        "https://www.canberra.edu.au/unit/11102/1/2026",
+        "https://www.canberra.edu.au/unit/11125/1/2026",
+        "https://www.canberra.edu.au/unit/11129/3/2026",
+        "https://www.canberra.edu.au/unit/11133/2/2027",
+        "https://www.canberra.edu.au/unit/11144/2/2026",
+        "https://www.canberra.edu.au/unit/11145/1/2027",
+        "https://www.canberra.edu.au/unit/11148/1/2027",
+        "https://www.canberra.edu.au/unit/11150/1/2026",
+        "https://www.canberra.edu.au/unit/11151/1/2026",
+        "https://www.canberra.edu.au/unit/11154/1/2027",
+        "https://www.canberra.edu.au/unit/11175/2/2026",
+        "https://www.canberra.edu.au/unit/11196/3/2027",
+        "https://www.canberra.edu.au/unit/11229/2/2026",
+        "https://www.canberra.edu.au/unit/11240/1/2026",
+        "https://www.canberra.edu.au/unit/11251/2/2026",
+        "https://www.canberra.edu.au/unit/11265/2/2026",
+        "https://www.canberra.edu.au/unit/11284/2/2027",
+        "https://www.canberra.edu.au/unit/11291/1/2026",
+        "https://www.canberra.edu.au/unit/11291/1/2027",
+        "https://www.canberra.edu.au/unit/11302/1/2027",
+        "https://www.canberra.edu.au/unit/11324/3/2026",
+        "https://www.canberra.edu.au/unit/11341/1/2027",
+        "https://www.canberra.edu.au/unit/11346/2/2026",
+        "https://www.canberra.edu.au/unit/11357/1/2027",
+        "https://www.canberra.edu.au/unit/11385/1/2027",
+        "https://www.canberra.edu.au/unit/11394/1/2026",
+        "https://www.canberra.edu.au/unit/11398/2/2027",
+        "https://www.canberra.edu.au/unit/11448/2/2026",
+        "https://www.canberra.edu.au/unit/11470/2/2026",
+        "https://www.canberra.edu.au/unit/11484/1/2027",
+        "https://www.canberra.edu.au/unit/11489/1/2026",
+        "https://www.canberra.edu.au/unit/11501/1/2026",
+        "https://www.canberra.edu.au/unit/11510/3/2026",
+        "https://www.canberra.edu.au/unit/11518/1/2027",
+        "https://www.canberra.edu.au/unit/11560/2/2027",
+        "https://www.canberra.edu.au/unit/11591/1/2026",
+        "https://www.canberra.edu.au/unit/11612/1/2027",
+        "https://www.canberra.edu.au/unit/11620/1/2027",
+        "https://www.canberra.edu.au/unit/11633/1/2027",
+        "https://www.canberra.edu.au/unit/11640/1/2026",
+        "https://www.canberra.edu.au/unit/11677/1/2026",
+        "https://www.canberra.edu.au/unit/11684/2/2027",
+        "https://www.canberra.edu.au/unit/11707/1/2027",
+        "https://www.canberra.edu.au/unit/11731/1/2026",
+        "https://www.canberra.edu.au/unit/11732/1/2026",
+        "https://www.canberra.edu.au/unit/11734/1/2027",
+        "https://www.canberra.edu.au/unit/11746/1/2026",
+        "https://www.canberra.edu.au/unit/11748/1/2026",
+        "https://www.canberra.edu.au/unit/11750/1/2027",
+        "https://www.canberra.edu.au/unit/11751/1/2026",
+        "https://www.canberra.edu.au/unit/11751/1/2027",
+        "https://www.canberra.edu.au/unit/11753/1/2027",
+        "https://www.canberra.edu.au/unit/11755/1/2027",
+        "https://www.canberra.edu.au/unit/11772/1/2027",
+        "https://www.canberra.edu.au/unit/11798/1/2027",
+        "https://www.canberra.edu.au/unit/11808/1/2026",
+        "https://www.canberra.edu.au/unit/11811/1/2027",
+        "https://www.canberra.edu.au/unit/11815/1/2026",
+        "https://www.canberra.edu.au/unit/11815/1/2027",
+        "https://www.canberra.edu.au/unit/11820/1/2026",
+        "https://www.canberra.edu.au/unit/11831/2/2027",
+        "https://www.canberra.edu.au/unit/11834/1/2026",
+        "https://www.canberra.edu.au/unit/11834/1/2027",
+        "https://www.canberra.edu.au/unit/11847/1/2027",
+        "https://www.canberra.edu.au/unit/11855/1/2026",
+        "https://www.canberra.edu.au/unit/11856/1/2026",
+        "https://www.canberra.edu.au/unit/11880/2/2027",
+        "https://www.canberra.edu.au/unit/11884/1/2026",
+        "https://www.canberra.edu.au/unit/11885/1/2027",
+        "https://www.canberra.edu.au/unit/11887/1/2026",
+        "https://www.canberra.edu.au/unit/11911/1/2026",
+        "https://www.canberra.edu.au/unit/11914/1/2027",
+        "https://www.canberra.edu.au/unit/11943/1/2027",
+        "https://www.canberra.edu.au/unit/11945/1/2026",
+        "https://www.canberra.edu.au/unit/11950/1/2026",
+        "https://www.canberra.edu.au/unit/11951/1/2027",
+        "https://www.canberra.edu.au/unit/11953/1/2026",
+        "https://www.canberra.edu.au/unit/11954/1/2026",
+        "https://www.canberra.edu.au/unit/11975/1/2026",
+        "https://www.canberra.edu.au/unit/11975/1/2027",
+        "https://www.canberra.edu.au/unit/11992/1/2027",
+        "https://www.canberra.edu.au/unit/11994/2/2026",
+        "https://www.canberra.edu.au/unit/11996/1/2026",
+        "https://www.canberra.edu.au/unit/11996/1/2027",
+        "https://www.canberra.edu.au/unit/12000/2/2026",
+        "https://www.canberra.edu.au/unit/12002/2/2027",
+        "https://www.canberra.edu.au/unit/12015/1/2026",
+        "https://www.canberra.edu.au/unit/12039/1/2026",
+        "https://www.canberra.edu.au/unit/12048/1/2026",
+        "https://www.canberra.edu.au/unit/12056/1/2026",
+        "https://www.canberra.edu.au/unit/12059/1/2026",
+        "https://www.canberra.edu.au/unit/12073/1/2027",
+        "https://www.canberra.edu.au/unit/12099/1/2027",
+        "https://www.canberra.edu.au/unit/12101/1/2027",
+        "https://www.canberra.edu.au/unit/12121/1/2027",
+        "https://www.canberra.edu.au/unit/12165/1/2027",
+        "https://www.canberra.edu.au/unit/12187/1/2027",
+        "https://www.canberra.edu.au/unit/12188/1/2027",
+        "https://www.canberra.edu.au/unit/12208/1/2027",
+        "https://www.canberra.edu.au/unit/12219/1/2026",
+        "https://www.canberra.edu.au/unit/12226/1/2027",
+        "https://www.canberra.edu.au/unit/12239/1/2026",
+        "https://www.canberra.edu.au/unit/12251/1/2027",
+        "https://www.canberra.edu.au/unit/12258/1/2027",
+        "https://www.canberra.edu.au/unit/12285/1/2027",
+        "https://www.canberra.edu.au/unit/5549/9/2027",
+        "https://www.canberra.edu.au/unit/6452/5/2027",
+        "https://www.canberra.edu.au/unit/6455/6/2026",
+        "https://www.canberra.edu.au/unit/6486/6/2026",
+        "https://www.canberra.edu.au/unit/6529/3/2026",
+        "https://www.canberra.edu.au/unit/6587/7/2027",
+        "https://www.canberra.edu.au/unit/6803/5/2026",
+        "https://www.canberra.edu.au/unit/6834/4/2026",
+        "https://www.canberra.edu.au/unit/6843/3/2026",
+        "https://www.canberra.edu.au/unit/7122/4/2027",
+        "https://www.canberra.edu.au/unit/7126/4/2026",
+        "https://www.canberra.edu.au/unit/7128/4/2027",
+        "https://www.canberra.edu.au/unit/7175/7/2026",
+        "https://www.canberra.edu.au/unit/8250/2/2026",
+        "https://www.canberra.edu.au/unit/8279/2/2026",
+        "https://www.canberra.edu.au/unit/8580/4/2027",
+        "https://www.canberra.edu.au/unit/8766/4/2026",
+        "https://www.canberra.edu.au/unit/8890/3/2026",
+        "https://www.canberra.edu.au/unit/8890/3/2027",
+        "https://www.canberra.edu.au/unit/9010/2/2026",
+        "https://www.canberra.edu.au/unit/9010/2/2027",
+        "https://www.canberra.edu.au/unit/9085/3/2026",
+        "https://www.canberra.edu.au/unit/9087/3/2026",
+        "https://www.canberra.edu.au/unit/9297/2/2027",
+        "https://www.canberra.edu.au/unit/9312/1/2027",
+        "https://www.canberra.edu.au/unit/9327/1/2027",
+        "https://www.canberra.edu.au/unit/9328/1/2026",
+        "https://www.canberra.edu.au/unit/9350/1/2027",
+        "https://www.canberra.edu.au/unit/9356/1/2026",
+        "https://www.canberra.edu.au/unit/9356/1/2027",
+        "https://www.canberra.edu.au/unit/9365/1/2027",
+        "https://www.canberra.edu.au/unit/9573/2/2027",
+        "https://www.canberra.edu.au/unit/9582/3/2026",
+        "https://www.canberra.edu.au/unit/9585/4/2026",
+        "https://www.canberra.edu.au/unit/9637/3/2027",
+        "https://www.canberra.edu.au/unit/9680/3/2027",
+        "https://www.canberra.edu.au/unit/9681/3/2027",
+        "https://www.canberra.edu.au/unit/9715/4/2027",
+        "https://www.canberra.edu.au/unit/9785/3/2027",
+        "https://www.canberra.edu.au/unit/9787/3/2027",
+        "https://www.canberra.edu.au/unit/9789/4/2027",
+        "https://www.canberra.edu.au/unit/9791/2/2026",
+        "https://www.canberra.edu.au/unit/9855/2/2026",
+        "https://www.canberra.edu.au/unit/9858/1/2027",
+        "https://www.canberra.edu.au/unit/9865/2/2027",
+        "https://www.canberra.edu.au/unit/9873/1/2026",
+        "https://www.canberra.edu.au/unit/9891/2/2026",
+        "https://www.canberra.edu.au/unit/9916/2/2026"
+      ],
+      "description": "Hero banner, breadcrumbs, then a card-driven body; dominant standard content page used across all site sections"
+    },
+    {
+      "name": "gallery-cards-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/creative-competition"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/creative-competition"
+      ],
+      "description": "Title band, breadcrumbs and a long sequence of card galleries"
+    },
+    {
+      "name": "content-listing-cards",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/employer-connect",
+        "https://www.canberra.edu.au/research/centres/uc-rise/education/courses"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/employer-connect",
+        "https://www.canberra.edu.au/about-uc/events/explore-uc",
+        "https://www.canberra.edu.au/about-uc/events/open-day-2025",
+        "https://www.canberra.edu.au/about-uc/graduation/after-graduation",
+        "https://www.canberra.edu.au/about-uc/graduation/booklets",
+        "https://www.canberra.edu.au/about-uc/graduation/graduation-day",
+        "https://www.canberra.edu.au/about-uc/graduation/livestreaming",
+        "https://www.canberra.edu.au/about-uc/graduation/livestreaming/livestream-archive",
+        "https://www.canberra.edu.au/about-uc/graduation/preparing-for-graduation-day",
+        "https://www.canberra.edu.au/about-uc/graduation/the-occasional-address",
+        "https://www.canberra.edu.au/about-uc/senior-management/office-of-the-vice-chancellor",
+        "https://www.canberra.edu.au/about-uc/strategy/Business-Process-Imovement",
+        "https://www.canberra.edu.au/about-uc/strategy/business-process-improvement",
+        "https://www.canberra.edu.au/about-uc/strategy/campus-master-plan",
+        "https://www.canberra.edu.au/about-uc/strategy/dmp",
+        "https://www.canberra.edu.au/alumni/benefits",
+        "https://www.canberra.edu.au/alumni/career-support",
+        "https://www.canberra.edu.au/alumni/contact-us",
+        "https://www.canberra.edu.au/alumni/our-community",
+        "https://www.canberra.edu.au/alumni/recent-graduates",
+        "https://www.canberra.edu.au/cmp-resources",
+        "https://www.canberra.edu.au/faculties/health/heal",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents/international-agent-marketing-toolkit",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents/international-agent-marketing-toolkit/fact-sheets-and-flyers",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents/international-agent-marketing-toolkit/international-course-guide",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents/international-agent-marketing-toolkit/social-media-tiles",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents/international-agent-marketing-toolkit/uc-logo",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents/international-agent-marketing-toolkit/videos",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/h-course/app-application",
+        "https://www.canberra.edu.au/future-students/entry-requirements-options/alternative-entry-recognition-pathways/vet-pathways/cit-uc-guaranteed-pathways",
+        "https://www.canberra.edu.au/future-students/get-into-uc/admissions-programs/app/app-application",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/act-health-e-learning",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/ahpra",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/national-criminal-history-check",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/ndis-worker-screening-check",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/new-south-wales",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/northern-territory",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/queensland",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/wilready",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/working-with-vulnerable-people",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc",
+        "https://www.canberra.edu.au/future-students/study-at-uc/postgraduate/phd",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/education/uc-step",
+        "https://www.canberra.edu.au/research/about-uc-research/research-plan",
+        "https://www.canberra.edu.au/research/centres/cdd/about-cdd/our-history",
+        "https://www.canberra.edu.au/research/centres/nmrc/nmrc-news",
+        "https://www.canberra.edu.au/research/centres/uc-rise/about-uc-rise",
+        "https://www.canberra.edu.au/research/centres/uc-rise/education/courses",
+        "https://www.canberra.edu.au/research/centres/uc-rise/women-in-sport",
+        "https://www.canberra.edu.au/research/research-impact/impact-stories",
+        "https://www.canberra.edu.au/research/research-plan",
+        "https://www.canberra.edu.au/scholarships"
+      ],
+      "description": "Single card grid listing with no hero or breadcrumb band"
+    },
+    {
+      "name": "festival-detail-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/fadx"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/fadx",
+        "https://www.canberra.edu.au/faculties/health/crrt/crrt-research/varis"
+      ],
+      "description": "Title band, breadcrumbs and cards for a festival/showcase page"
+    },
+    {
+      "name": "symposium-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/jspsaaa-annual-symposium/about-jspsaaa"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/jspsaaa-annual-symposium/about-jspsaaa",
+        "https://www.canberra.edu.au/about-uc/events/mhhp-showcase"
+      ],
+      "description": "Title band, breadcrumbs and cards for a symposium information page"
+    },
+    {
+      "name": "event-content-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/open-day"
+      ],
+      "urls": [
+        "http://www.canberra.edu.au/openday",
+        "https://www.canberra.edu.au/about-uc/events/open-day",
+        "https://www.canberra.edu.au/future-students/careers-advisors-and-agents/information-for-agents/agent-nomination-application-form",
+        "https://www.canberra.edu.au/research"
+      ],
+      "description": "Title band, breadcrumbs and cards for an event detail page"
+    },
+    {
+      "name": "festival-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival"
+      ],
+      "description": "Title band, breadcrumbs and cards for a festival landing page"
+    },
+    {
+      "name": "festival-archive-early",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival/research-festival-2022"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival/research-festival-2022"
+      ],
+      "description": "Title band, breadcrumbs and cards for an earlier archived festival year"
+    },
+    {
+      "name": "event-archive-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival/research-festival-2023"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival/research-festival-2023",
+        "https://www.canberra.edu.au/about-uc/events/research-festival/research-festival-2023/research-festival-eoi-2023",
+        "https://www.canberra.edu.au/about-uc/strategy/connected"
+      ],
+      "description": "Title band, breadcrumbs and cards for an archived past event"
+    },
+    {
+      "name": "festival-archive-recent",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival/research-festival-2024"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/events/research-festival/research-festival-2024"
+      ],
+      "description": "Title band, breadcrumbs and cards for a recent archived festival year"
+    },
+    {
+      "name": "values-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/purpose-and-values"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/purpose-and-values"
+      ],
+      "description": "Breadcrumb-led page with a single custom content block"
+    },
+    {
+      "name": "policy-search-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/sustainability/sustainability-policy"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/sustainability/sustainability-policy"
+      ],
+      "description": "Search box followed by an accordion of policy content"
+    },
+    {
+      "name": "media-rich-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/about-uc/work-at-uc/vip/vice-chancellor-and-president-executive-search"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/about-uc/work-at-uc/vip/vice-chancellor-and-president-executive-search"
+      ],
+      "description": "Stacked hero sections interleaved with video and custom content blocks"
+    },
+    {
+      "name": "section-landing-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/alumni"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/alumni",
+        "https://www.canberra.edu.au/future-students/study-at-uc/postgraduate/master-of-research",
+        "https://www.canberra.edu.au/future-students/support-at-uc/uc-thrive/the-west-project",
+        "https://www.canberra.edu.au/research/centres/hri/research-themes/mental-health-policy-unit/1000-cities-challenge",
+        "https://www.canberra.edu.au/research/centres/uc-rise/news-and-events"
+      ],
+      "description": "Title band, breadcrumbs and cards acting as a top-level section landing"
+    },
+    {
+      "name": "program-content-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/alumni/career-support/u-can-thrive"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/alumni/career-support/u-can-thrive",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/geccko",
+        "https://www.canberra.edu.au/future-students/start-at-uc/placement-requirements/htims",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/creative-industries/graduate-certificate-in-creative-industries",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/creative-industries/graduate-certificate-in-digital-marketing",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/creative-industries/graduate-certificate-in-heritage-materials-conservation",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/creative-industries/graduate-diploma-in-creative-industries",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/master-of-building-and-construction-information-management",
+        "https://www.canberra.edu.au/future-students/study-at-uc/other-locations/sydney/sydney-hills-campus/bachelor-of-early-childhood-education",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/health/nursing/master-of-nursing-practice",
+        "https://www.canberra.edu.au/research/centres/case",
+        "https://www.canberra.edu.au/research/centres/csc",
+        "https://www.canberra.edu.au/research/centres/nmrc/digital-news-report-australia"
+      ],
+      "description": "Title band, breadcrumbs and cards; program/support content layout"
+    },
+    {
+      "name": "engagement-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/alumni/engage-with-uc"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/alumni/engage-with-uc",
+        "https://www.canberra.edu.au/alumni/events",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/upcoming-term-commencements",
+        "https://www.canberra.edu.au/on-campus/sport"
+      ],
+      "description": "Title band, breadcrumbs and cards for an engagement/get-involved page"
+    },
+    {
+      "name": "hero-info-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/coronavirus-advice"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/coronavirus-advice",
+        "https://www.canberra.edu.au/give"
+      ],
+      "description": "Hero banner, custom content and cards for an advisory/information page"
+    },
+    {
+      "name": "breadcrumb-text-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/current-students/students-at-tafe-nsw-northern-sydney-st-leonards",
+        "https://www.canberra.edu.au/research/centres/nmrc/research-projects"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/current-students/students-at-tafe-nsw-northern-sydney-st-leonards",
+        "https://www.canberra.edu.au/research/centres/nmrc/research-projects"
+      ],
+      "description": "Breadcrumb-led page with default text content"
+    },
+    {
+      "name": "study-skills-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/current-students/study-skills"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/current-students/study-skills"
+      ],
+      "description": "Breadcrumb-led page with custom content blocks"
+    },
+    {
+      "name": "faculty-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/faculties/health"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/faculties/health"
+      ],
+      "description": "Carousel, accordion and video blocks forming a faculty landing page"
+    },
+    {
+      "name": "program-detail-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/faculties/health/carat/aspiremed"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/faculties/health/carat/aspiremed"
+      ],
+      "description": "Title band, breadcrumbs and cards for a program detail page"
+    },
+    {
+      "name": "centre-content-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/faculties/health/carat/cpop"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/faculties/health/carat/cpop",
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/faqs-and-resources",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/government/pathways-to-politics",
+        "https://www.canberra.edu.au/research/centres/arg/cpop",
+        "https://www.canberra.edu.au/research/centres/rc-disc",
+        "https://www.canberra.edu.au/scholarships/act-education-scholarships"
+      ],
+      "description": "Title band, breadcrumbs and cards for a research centre sub-page"
+    },
+    {
+      "name": "partnership-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/mentoring-partnerships"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/faculties/health/carat/cpop/mentoring-partnerships",
+        "https://www.canberra.edu.au/research/centres/nmrc/research-projects/sense-of-belonging-and-media-representation"
+      ],
+      "description": "Title band, breadcrumbs and cards for a partnership/mentoring page"
+    },
+    {
+      "name": "research-content-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/ce4heal"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/faculties/health/heal/heal-research/ce4heal",
+        "https://www.canberra.edu.au/future-students/apply-to-uc/key-dates",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/bachelor-of-design",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/bachelor-of-science",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/creative-industries/master-of-creative-industries",
+        "https://www.canberra.edu.au/future-students/study-at-uc/about-our-courses/master-of-teaching",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/arts",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/built-environment",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/business-government-and-law",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/design",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/law",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/sport",
+        "https://www.canberra.edu.au/research/centres/hri",
+        "https://www.canberra.edu.au/research/centres/hri/contact-us"
+      ],
+      "description": "Title band, breadcrumbs and cards; research/faculty content layout"
+    },
+    {
+      "name": "hero-content-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/january/uc-aussie-summer"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/january/uc-aussie-summer",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/january/uc-education-agents",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/january/uc-keeping-you-safe",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/may/anita-building",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/may/joyce-creativity",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/may/uc-early-offer-scheme",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/may/wahyu-building-numeracy",
+        "https://www.canberra.edu.au/future-students/study-at-uc/international/international-student-experience-at-uc/2026/plan-your-2026-uc-event-calendar"
+      ],
+      "description": "Hero banner, breadcrumbs and cards; article/experience post layout"
+    },
+    {
+      "name": "hero-only-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/career-cupid"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/career-cupid"
+      ],
+      "description": "Single hero banner with no further structured blocks"
+    },
+    {
+      "name": "workshop-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/design/workshop7"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/design/workshop7"
+      ],
+      "description": "Title band, breadcrumbs and cards for a workshop detail page"
+    },
+    {
+      "name": "study-area-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/government/pathways-to-politics/about-the-program"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/government/pathways-to-politics/about-the-program",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/government/pathways-to-politics/application-process",
+        "https://www.canberra.edu.au/future-students/study-at-uc/study-areas/government/pathways-to-politics/program-outline",
+        "https://www.canberra.edu.au/research/centres/cccr",
+        "https://www.canberra.edu.au/research/centres/cdd",
+        "https://www.canberra.edu.au/research/centres/hri/about-hri",
+        "https://www.canberra.edu.au/research/centres/uc-rise",
+        "https://www.canberra.edu.au/research/centres/uc-rise/about-uc-rise/contact-us"
+      ],
+      "description": "Title band, breadcrumbs and cards describing a study area or program"
+    },
+    {
+      "name": "directory-table-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/health-clinics"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/health-clinics"
+      ],
+      "description": "Hero, card groups and a data table forming a directory page"
+    },
+    {
+      "name": "institute-breadcrumb-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/irps"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/irps"
+      ],
+      "description": "Breadcrumb-led institute page with minimal blocks"
+    },
+    {
+      "name": "library-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/library/about"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/library/about",
+        "https://www.canberra.edu.au/maps/buildings-directory"
+      ],
+      "description": "Breadcrumb-led library information page with minimal blocks"
+    },
+    {
+      "name": "multi-carousel-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/on-campus"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/on-campus"
+      ],
+      "description": "Multiple carousels interleaved with custom content sections"
+    },
+    {
+      "name": "strategy-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/on-campus/sport-strategy"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/on-campus/sport-strategy"
+      ],
+      "description": "Hero, carousels, video and tabs forming a strategy landing page"
+    },
+    {
+      "name": "hall-of-fame-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/on-campus/sport/sport-walk-of-fame"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/on-campus/sport/sport-walk-of-fame",
+        "https://www.canberra.edu.au/on-campus/sport/sport-walk-of-fame/inductees"
+      ],
+      "description": "Title band, breadcrumbs and cards for a hall-of-fame listing"
+    },
+    {
+      "name": "registration-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/on-campus/sport/sport-walk-of-fame/inductee-registration"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/on-campus/sport/sport-walk-of-fame/inductee-registration"
+      ],
+      "description": "Title band, breadcrumbs and cards for a registration form page"
+    },
+    {
+      "name": "centre-detail-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/research/centres/cics"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/research/centres/cics"
+      ],
+      "description": "Title band, breadcrumbs and cards for a research centre detail page"
+    },
+    {
+      "name": "embed-map-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/-interactive-mapping/dementia-atlas-act"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/-interactive-mapping/dementia-atlas-act",
+        "https://www.canberra.edu.au/research/centres/hri/research-projects/glocal/-interactive-mapping/youth-mental-health-service-act"
+      ],
+      "description": "Embedded interactive map with supporting custom content"
+    },
+    {
+      "name": "project-detail-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training/Falls-prevention-project"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/research/centres/uc-rise/assessments-and-training/Falls-prevention-project"
+      ],
+      "description": "Title band, breadcrumbs and cards for a research project detail page"
+    },
+    {
+      "name": "institute-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/research/institutes/iae"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/research/institutes/iae"
+      ],
+      "description": "Carousel, quote, columns and custom blocks forming an institute landing"
+    },
+    {
+      "name": "dual-hero-landing",
+      "representativePages": [
+        "https://www.canberra.edu.au/safe-community/LGBTQISB",
+        "https://www.canberra.edu.au/safe-community/respect-now-always"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/safe-community/LGBTQISB",
+        "https://www.canberra.edu.au/safe-community/our-commitment",
+        "https://www.canberra.edu.au/safe-community/report-to-uc",
+        "https://www.canberra.edu.au/safe-community/respect-now-always",
+        "https://www.canberra.edu.au/safe-community/security"
+      ],
+      "description": "Two stacked hero sections followed by custom content blocks"
+    },
+    {
+      "name": "resource-hero-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/safe-community/gender-based-violence-resources"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/safe-community/gender-based-violence-resources"
+      ],
+      "description": "Custom intro with stacked hero sections for a resource page"
+    },
+    {
+      "name": "uncover-cards-page",
+      "representativePages": [
+        "https://www.canberra.edu.au/uncover"
+      ],
+      "urls": [
+        "https://www.canberra.edu.au/uncover"
+      ],
+      "description": "Card grid with a supporting custom content block"
+    }
+  ]
+}
