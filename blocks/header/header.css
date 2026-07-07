@@ -1,272 +1,258 @@
-/* header and nav layout */
+/* University of Canberra header
+ * Utility bar (dark slate) + main bar (white: logo left, nav links + search right).
+ */
+
 header .nav-wrapper {
-  background-color: var(--background-color);
   width: 100%;
-  z-index: 2;
-  position: fixed;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 header nav {
-  box-sizing: border-box;
   display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+  grid-template-areas:
+    'utility utility'
+    'brand tools'
+    'sections sections';
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0 24px;
-  margin: auto;
-  max-width: 1248px;
-  height: var(--nav-height);
+  max-width: var(--content-max-width, 1140px);
+  margin: 0 auto;
   padding: 0 24px;
   font-family: var(--body-font-family);
 }
 
 header nav[aria-expanded='true'] {
-  grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
-  overflow-y: auto;
-  min-height: 100dvh;
+  overflow: visible;
 }
 
-@media (width >= 900px) {
-  header .nav-wrapper {
-    position: relative;
-  }
-
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
+/* --- Utility bar (top dark slate strip) --- */
+header nav .nav-utility {
+  grid-area: utility;
+  margin: 0 -24px;
+  padding: 0 24px;
+  background-color: #424d62;
 }
 
-header nav p {
-  margin: 0;
-  line-height: 1;
-}
-
-header nav a:any-link {
-  color: currentcolor;
-}
-
-/* hamburger */
-header nav .nav-hamburger {
-  grid-area: hamburger;
-  height: 22px;
+header nav .nav-utility ul {
   display: flex;
-  align-items: center;
-}
-
-header nav .nav-hamburger button {
-  height: 22px;
+  justify-content: flex-end;
+  gap: 22px;
+  list-style: none;
   margin: 0;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
+  padding: 8px 0;
 }
 
-header nav .nav-hamburger-icon,
-header nav .nav-hamburger-icon::before,
-header nav .nav-hamburger-icon::after {
-  box-sizing: border-box;
-  display: block;
-  position: relative;
-  width: 20px;
+header nav .nav-utility a {
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
 }
 
-header nav .nav-hamburger-icon::before,
-header nav .nav-hamburger-icon::after {
-  content: '';
-  position: absolute;
-  background: currentcolor;
+header nav .nav-utility a:hover {
+  text-decoration: underline;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon,
-header nav[aria-expanded='false'] .nav-hamburger-icon::before,
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  height: 2px;
-  border-radius: 2px;
-  background: currentcolor;
-}
-
-header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
-}
-
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 22px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::before,
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: 3px;
-  left: 1px;
-  transform: rotate(45deg);
-  transform-origin: 2px 1px;
-  width: 24px;
-  height: 2px;
-  border-radius: 2px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon::after {
-  top: unset;
-  bottom: 3px;
-  transform: rotate(-45deg);
-}
-
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-/* brand */
-header .nav-brand {
+/* --- Brand / logo --- */
+header nav .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
-  line-height: 1;
+  padding: 14px 0;
+}
+
+header nav .nav-brand p {
+  margin: 0;
 }
 
 header nav .nav-brand img {
-  width: 128px;
-  height: auto;
+  width: auto;
+  height: 44px;
 }
 
-/* sections */
+/* --- Main nav links --- */
 header nav .nav-sections {
   grid-area: sections;
-  flex: 1 1 auto;
-  display: none;
-  visibility: hidden;
-}
-
-header nav[aria-expanded='true'] .nav-sections {
-  display: block;
-  visibility: visible;
-  align-self: start;
 }
 
 header nav .nav-sections ul {
+  display: flex;
+  gap: 28px;
   list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
+  margin: 0;
+  padding: 0;
 }
 
-header nav .nav-sections ul > li {
+header nav .nav-sections a {
+  display: inline-block;
+  padding: 8px 0;
+  color: var(--text-color);
+  font-size: 16px;
   font-weight: 500;
+  text-decoration: none;
 }
 
-header nav .nav-sections ul > li > ul {
-  margin-top: 0;
+header nav .nav-sections a:hover {
+  color: var(--link-color);
 }
 
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 400;
+/* --- Tools: search --- */
+header nav .nav-tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
-@media (width >= 900px) {
-  header nav .nav-sections {
+header nav .nav-search-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: var(--link-color);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+header nav .nav-search-icon {
+  width: 16px;
+  height: 16px;
+  background: no-repeat center / contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+}
+
+header nav .nav-search {
+  display: none;
+  align-items: center;
+}
+
+header nav .nav-search.open {
+  display: flex;
+}
+
+header nav .nav-search input {
+  width: 240px;
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 9999px 0 0 9999px;
+  font: inherit;
+  font-size: 14px;
+}
+
+header nav .nav-search-submit {
+  width: 40px;
+  height: 37px;
+  border: 0;
+  border-radius: 0 9999px 9999px 0;
+  background: var(--link-color) no-repeat center / 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  cursor: pointer;
+}
+
+/* --- Hamburger (hidden on desktop) --- */
+header .nav-hamburger {
+  display: none;
+}
+
+/* ============ MOBILE ============ */
+@media (width < 900px) {
+  header nav {
+    grid-template-areas:
+      'utility utility'
+      'brand hamburger';
+    grid-template-columns: 1fr auto;
+    padding: 0 16px;
+  }
+
+  header .nav-hamburger {
+    grid-area: hamburger;
     display: block;
-    visibility: visible;
-    white-space: nowrap;
   }
 
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-  }
-
-  header nav .nav-sections .nav-drop {
-    position: relative;
-    padding-right: 16px;
+  header .nav-hamburger button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: none;
     cursor: pointer;
   }
 
-  header nav .nav-sections .nav-drop::after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    top: 0.5em;
-    right: 2px;
-    transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.5em;
-    transform: rotate(315deg);
-  }
-
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+  header .nav-hamburger-icon,
+  header .nav-hamburger-icon::before,
+  header .nav-hamburger-icon::after {
     display: block;
-    position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
-    white-space: initial;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--text-color);
+    transition: transform 0.2s, opacity 0.2s;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
+  header .nav-hamburger-icon::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    top: -7px;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+  header .nav-hamburger-icon::after {
+    content: '';
+    position: absolute;
+    top: 7px;
   }
-}
 
-/* tools */
-header nav .nav-tools {
-  grid-area: tools;
+  /* hamburger -> cross when open */
+  header nav[aria-expanded='true'] ~ * .nav-hamburger-icon,
+  header .nav-wrapper:has(nav[aria-expanded='true']) .nav-hamburger-icon {
+    background: transparent;
+  }
+
+  header .nav-wrapper:has(nav[aria-expanded='true']) .nav-hamburger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  header .nav-wrapper:has(nav[aria-expanded='true']) .nav-hamburger-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* nav links + tools hidden until hamburger opens */
+  header nav .nav-sections,
+  header nav .nav-tools {
+    display: none;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections,
+  header nav[aria-expanded='true'] .nav-tools {
+    grid-area: sections;
+    display: block;
+    padding: 12px 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  header nav[aria-expanded='true'] .nav-tools {
+    justify-content: flex-start;
+    padding-top: 16px;
+  }
+
+  header nav .nav-utility ul {
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
 }

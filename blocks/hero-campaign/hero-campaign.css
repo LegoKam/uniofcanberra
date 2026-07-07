@@ -4,6 +4,12 @@
  * Values extracted from https://www.canberra.edu.au/ computed styles.
  */
 
+/* Hide the imported page-title h1 that sits above the hero (the real site
+   shows this text only in the browser tab / header, not as page content). */
+.hero-campaign-container > .default-content-wrapper {
+  display: none;
+}
+
 /* Full-width override: hero must break out of the section max-width */
 .hero-campaign-wrapper {
   max-width: 100% !important;
