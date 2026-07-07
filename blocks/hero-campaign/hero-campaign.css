@@ -1,0 +1,141 @@
+/* Block: hero-campaign
+ * Full-bleed hero banner: background image with white serif headline,
+ * intro paragraph, and a teal-on-white pill CTA overlaid on the image.
+ * Values extracted from https://www.canberra.edu.au/ computed styles.
+ */
+
+/* Hide the imported page-title h1 that sits above the hero (the real site
+   shows this text only in the browser tab / header, not as page content). */
+.hero-campaign-container > .default-content-wrapper {
+  display: none;
+}
+
+/* Full-width override: hero must break out of the section max-width */
+.hero-campaign-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.hero-campaign {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  color: #fff;
+}
+
+/* Row 1: background image cell — fills the block, sits behind the text */
+.hero-campaign > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+}
+
+.hero-campaign > div:first-child > div,
+.hero-campaign > div:first-child picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-campaign > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Row 2: text content cell — overlaid, centered in content container */
+.hero-campaign > div:last-child {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: inherit;
+  margin: 0;
+}
+
+.hero-campaign > div:last-child > div {
+  width: 100%;
+  max-width: var(--content-max-width, 1140px);
+  margin: 0 auto;
+  padding: 40px 24px;
+  text-align: left;
+}
+
+/* Headline — two-line serif, white */
+.hero-campaign h1 {
+  max-width: 480px;
+  margin: 0 0 16px;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+/* Intro paragraph */
+.hero-campaign p {
+  max-width: 420px;
+  margin: 0 0 20px;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* CTA pill — reset EDS button decoration to the source's white/teal pill */
+.hero-campaign .button-container {
+  margin: 0;
+}
+
+.hero-campaign a,
+.hero-campaign a.button:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 35px;
+  border: 3px solid #fff;
+  border-radius: 9999px;
+  background-color: #fff;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hero-campaign a:hover,
+.hero-campaign a.button:any-link:hover {
+  background-color: transparent;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Fallback when no background image is authored: dark teal background */
+.hero-campaign.hero-campaign-no-image {
+  background-color: var(--dark-color);
+}
+
+.hero-campaign.hero-campaign-no-image > div:first-child {
+  position: static;
+}
+
+@media (width >= 900px) {
+  .hero-campaign {
+    min-height: 540px;
+  }
+
+  .hero-campaign > div:last-child > div {
+    padding: 40px 32px;
+  }
+
+  .hero-campaign h1 {
+    font-size: 52px;
+    line-height: 1.05;
+  }
+
+  .hero-campaign p {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}

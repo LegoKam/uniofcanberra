@@ -1,0 +1,134 @@
+/* cards-studyarea -- "Explore our courses" study-area icon grid
+ *
+ * Each study area imported as its own <div class="cards-studyarea"> block,
+ * decorated to <ul><li> with .cards-studyarea-card-image + .cards-studyarea-card-body.
+ * Tiles are separate sibling .cards-studyarea-wrapper elements inside the
+ * .cards-studyarea-container section, so the grid is applied at the container.
+ */
+
+/* --- One tile --- */
+.cards-studyarea > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-studyarea > ul > li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  text-align: center;
+}
+
+.cards-studyarea .cards-studyarea-card-image {
+  line-height: 0;
+  margin-bottom: 12px;
+}
+
+.cards-studyarea .cards-studyarea-card-image img {
+  width: 56px;
+  height: 56px;
+  max-width: 56px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.cards-studyarea .cards-studyarea-card-body {
+  margin: 0;
+}
+
+.cards-studyarea .cards-studyarea-card-body a {
+  display: block;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cards-studyarea .cards-studyarea-card-body a:hover {
+  text-decoration: underline;
+}
+
+/* --- Section: heading (left) + search bar + 4-col icon grid (right) ---
+ * The section container holds a default-content-wrapper (heading + search)
+ * followed by 12 sibling .cards-studyarea-wrapper tiles. We lay the whole
+ * container out as a grid and reset the global per-wrapper max-width.
+ */
+.cards-studyarea-container {
+  max-width: var(--content-max-width, 1140px);
+  margin: 40px auto;
+  padding: 20px 24px;
+}
+
+/* Neutralize the global `.section > div { max-width; margin:auto }` on wrappers */
+.cards-studyarea-container > .default-content-wrapper,
+.cards-studyarea-container > .cards-studyarea-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* "Explore our courses" heading */
+.cards-studyarea-container .default-content-wrapper h2 {
+  margin: 0 0 16px;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+/* Search bar (imported as plain text) styled to resemble the source input */
+.cards-studyarea-container .default-content-wrapper p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 14px 24px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  color: #767676;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+}
+
+.cards-studyarea-wrapper {
+  margin: 0;
+}
+
+/* Mobile: single-column heading, then tiles 2 across */
+.cards-studyarea-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 28px;
+  align-items: start;
+}
+
+.cards-studyarea-container > .default-content-wrapper {
+  grid-column: 1 / -1;
+}
+
+@media (width >= 900px) {
+  /* Left heading column (with search) + right 4-column tile grid */
+  .cards-studyarea-container {
+    grid-template-columns: 300px repeat(4, 1fr);
+    column-gap: 28px;
+    row-gap: 40px;
+    padding: 40px 24px;
+  }
+
+  /* Heading + search occupy the left column, spanning the 3 tile rows */
+  .cards-studyarea-container > .default-content-wrapper {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+  }
+
+  .cards-studyarea-container .default-content-wrapper h2 {
+    font-size: 44px;
+  }
+}

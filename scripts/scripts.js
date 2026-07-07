@@ -143,10 +143,27 @@ function decorateButtons(main) {
 }
 
 /**
+ * Move instrumentation attributes from one element to another.
+ * No-op for document-authored projects (no Universal Editor instrumentation),
+ * provided so block decorators that expect it can import it safely.
+ * @param {Element} from source element
+ * @param {Element} to target element
+ */
+export function moveInstrumentation(from, to) {
+  if (!from || !to) return;
+  const attrs = [...from.attributes]
+    .map(({ nodeName }) => nodeName)
+    .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'));
+  attrs.forEach((attr) => {
+    to.setAttribute(attr, from.getAttribute(attr));
+    from.removeAttribute(attr);
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);

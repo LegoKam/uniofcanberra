@@ -1,0 +1,101 @@
+/*
+ * cards-stat -- "Why study at UC" selling-point stat card
+ * Values extracted from source computed styles:
+ *   #selling_points_2378666 .selling-point.col-md-4
+ * Each authored block contains ONE stat (icon + statement + attribution).
+ * On the source, three stats sit side-by-side in a centered row; here that is
+ * reproduced by flowing the three consecutive block wrappers as inline columns.
+ */
+
+/* ---- Single stat card (decorated to ul > li) ---- */
+.cards-stat > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-stat > ul > li {
+  display: block;
+  margin: 0;
+  padding: 16px 15px;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+}
+
+/* Icon image -- teal line icons, centered */
+.cards-stat .cards-stat-card-image {
+  line-height: 0;
+}
+
+.cards-stat .cards-stat-card-image img {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+  object-fit: contain;
+}
+
+/* Text block (statement + attribution) */
+.cards-stat .cards-stat-card-body {
+  margin: 0;
+}
+
+/* Stat statement (first paragraph) */
+.cards-stat .cards-stat-card-body p {
+  margin: 0 0 8px;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Attribution (second, smaller paragraph) */
+.cards-stat .cards-stat-card-body p:last-child {
+  color: #767676;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* ---- "Why study at UC" default content: feature image + label ---- */
+/* The feature image ("Canberra's only Adobe Creative Campus") imports as a
+   bare <p><img>; constrain it so it doesn't blow the section height open. */
+.cards-stat-container > .default-content-wrapper h2 {
+  margin: 0 0 8px;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.cards-stat-container > .default-content-wrapper p {
+  margin: 0;
+}
+
+.cards-stat-container > .default-content-wrapper picture,
+.cards-stat-container > .default-content-wrapper img {
+  display: block;
+  width: auto;
+  max-width: 200px;
+  max-height: 140px;
+  height: auto;
+}
+
+/* ---- Row layout: three consecutive cards-stat blocks side-by-side ---- */
+@media (width >= 900px) {
+  main > .section > div.cards-stat-wrapper {
+    float: left;
+    width: 31%;
+    max-width: none;
+    margin: 0;
+    padding: 16px 10px;
+  }
+
+  /* Clear the float after the third stat card */
+  .cards-stat-container > .default-content-wrapper:has(h2) {
+    clear: both;
+  }
+}
