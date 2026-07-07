@@ -1,6 +1,6 @@
 /* cards-stat -- "Why study at UC" selling-point stats
- * Row 1: background photo + teal feature card.
- * Rows 2-4: three stats grouped in a white bar.
+ * Layout mirrors source: teal card (col-4) + campaign area (col-8)
+ * with background image and stats bar overlapping.
  */
 
 .cards-stat-container {
@@ -43,23 +43,7 @@
   padding: 0;
 }
 
-/* Hero row: photo + teal card */
-.cards-stat-hero {
-  display: contents;
-}
-
-.cards-stat-hero-image {
-  line-height: 0;
-  overflow: hidden;
-}
-
-.cards-stat-hero-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
+/* Teal feature card */
 .cards-stat-hero-content {
   padding: 32px 24px;
   background-color: #009abc;
@@ -87,6 +71,36 @@
 .cards-stat-hero-content p:last-child {
   font-size: 24px;
   font-weight: 600;
+}
+
+/* Campaign area: background image */
+.cards-stat-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.cards-stat-hero-image {
+  position: relative;
+  line-height: 0;
+}
+
+.cards-stat-hero-image::after {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.cards-stat-hero-image picture,
+.cards-stat-hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-stat-hero-image img {
+  object-fit: cover;
 }
 
 /* White stats bar */
@@ -136,28 +150,17 @@
 }
 
 @media (width >= 900px) {
+  /* row align-items-end: col-4 + col-8 */
   .cards-stat > ul {
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto auto;
     align-items: end;
-  }
-
-  .cards-stat-hero-image {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    margin-bottom: -80px;
-  }
-
-  .cards-stat-hero-image img {
-    width: 120%;
-    max-width: none;
-    margin-left: -10%;
+    column-gap: 40px;
   }
 
   .cards-stat-hero-content {
     grid-column: 1;
-    grid-row: 2;
-    z-index: 1;
+    grid-row: 1;
+    z-index: 2;
     padding: 32px 24px;
     aspect-ratio: 1;
     display: flex;
@@ -170,11 +173,32 @@
     font-size: 28px;
   }
 
+  /* campaign-card column: image behind */
+  .cards-stat-hero {
+    grid-column: 2;
+    grid-row: 1;
+    z-index: 0;
+    overflow: visible;
+  }
+
+  .cards-stat-hero-image::after {
+    padding-top: 56.25%;
+  }
+
+  .cards-stat-hero-image img {
+    left: -25%;
+    width: 120%;
+    max-width: none;
+  }
+
+  /* campaign-card-content: stats over image */
   .cards-stat-stats {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
+    align-self: end;
     grid-template-columns: repeat(3, 1fr);
-    z-index: 1;
+    z-index: 2;
+    margin-bottom: -10%;
   }
 
   .cards-stat-stat {

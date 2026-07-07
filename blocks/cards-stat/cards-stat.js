@@ -1,22 +1,18 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
-function classifyCells(li, imageClass, bodyClass) {
-  [...li.children].forEach((div) => {
-    if (div.children.length === 1 && div.querySelector('picture')) {
-      div.className = imageClass;
-    } else {
-      div.className = bodyClass;
-    }
-  });
-}
-
 function buildStat(statRow) {
   const stat = document.createElement('div');
   stat.className = 'cards-stat-stat';
   moveInstrumentation(statRow, stat);
   while (statRow.firstElementChild) stat.append(statRow.firstElementChild);
-  classifyCells(stat, 'cards-stat-card-image', 'cards-stat-card-body');
+  [...stat.children].forEach((div) => {
+    if (div.children.length === 1 && div.querySelector('picture')) {
+      div.className = 'cards-stat-card-image';
+    } else {
+      div.className = 'cards-stat-card-body';
+    }
+  });
   return stat;
 }
 
@@ -26,12 +22,22 @@ export default function decorate(block) {
 
   rows.forEach((row, index) => {
     if (index === 0) {
+      const heroContent = document.createElement('li');
+      heroContent.className = 'cards-stat-hero-content';
       const hero = document.createElement('li');
       hero.className = 'cards-stat-hero';
       moveInstrumentation(row, hero);
-      while (row.firstElementChild) hero.append(row.firstElementChild);
-      classifyCells(hero, 'cards-stat-hero-image', 'cards-stat-hero-content');
-      ul.append(hero);
+
+      const cells = [...row.children];
+      if (cells[0]) {
+        cells[0].className = 'cards-stat-hero-image';
+        hero.append(cells[0]);
+      }
+      if (cells[1]) {
+        while (cells[1].firstElementChild) heroContent.append(cells[1].firstElementChild);
+      }
+
+      ul.append(heroContent, hero);
       return;
     }
 
