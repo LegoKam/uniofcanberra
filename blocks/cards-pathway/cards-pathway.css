@@ -1,19 +1,54 @@
 /* Block: cards-pathway -- "Choose your pathway"
- * Section layout: teal jumbo heading panel (left) + white card box (right, 2x2).
- * Heading is default content; cards are one block. Styled at the container level
- * because the heading and cards live in separate section wrappers.
+ * Section layout: cyan jumbo heading panel (left) + white 2x2 card box (right).
+ * Heading lives in default-content-wrapper; cards are decorated to ul/li.
  */
 
-.cards-pathway-container > div {
+.cards-pathway-container {
   max-width: var(--content-max-width, 1140px);
   margin: 0 auto;
   padding: 40px 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
 }
 
-/* Teal jumbo heading panel */
+/* Neutralize global section wrapper constraints */
+.cards-pathway-container > .default-content-wrapper,
+.cards-pathway-container > .cards-pathway-wrapper {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cyan jumbo heading panel */
 .cards-pathway-container .default-content-wrapper {
-  background-color: var(--brand-teal, #006c91);
-  padding: 48px 40px;
+  position: relative;
+  padding: 48px 40px 48px 0;
+}
+
+.cards-pathway-container .default-content-wrapper::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -40px;
+  bottom: -40px;
+  left: -250px;
+  right: 12%;
+  background-color: #009abc;
+}
+
+.cards-pathway-container .default-content-wrapper::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -40px;
+  bottom: -40px;
+  left: -250px;
+  right: 12%;
+  opacity: 0.25;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 .cards-pathway-container .default-content-wrapper h2 {
@@ -21,12 +56,12 @@
   max-width: 6ch;
   color: #fff;
   font-family: var(--heading-font-family);
-  font-size: 44px;
-  font-weight: 700;
+  font-size: 36px;
+  font-weight: 600;
   line-height: 1.1;
 }
 
-/* White card box holding the 4 pathway cards */
+/* Card list */
 .cards-pathway {
   padding: 0;
   background: none;
@@ -35,30 +70,29 @@
 .cards-pathway > ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 16px 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px 40px;
+  gap: 16px;
 }
 
 .cards-pathway > ul > li {
   margin: 0;
-  padding: 0;
+  padding: 24px;
   border: none;
-  background: none;
-  box-shadow: none;
+  background: #fff;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
 }
 
 .cards-pathway .cards-pathway-card-body {
   margin: 0;
 }
 
-/* Card heading link */
 .cards-pathway .cards-pathway-card-body h3 {
   margin: 0 0 8px;
   font-family: var(--body-font-family);
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--link-color);
 }
@@ -73,7 +107,6 @@
   text-decoration: underline;
 }
 
-/* Description */
 .cards-pathway .cards-pathway-card-body p {
   margin: 0;
   font-family: var(--body-font-family);
@@ -84,38 +117,51 @@
 }
 
 @media (width >= 900px) {
-  /* Overlapping 2-column section: teal panel behind, white card box in front */
-  .cards-pathway-container > div {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    align-items: start;
-    padding: 60px 24px;
+  .cards-pathway-container {
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    padding: 70px 24px;
   }
 
   .cards-pathway-container .default-content-wrapper {
     grid-column: 1;
     grid-row: 1;
-    align-self: stretch;
-    z-index: 0;
-    padding: 64px 48px;
+    align-self: center;
+    padding: 48px 40px;
+  }
+
+  .cards-pathway-container .default-content-wrapper::before,
+  .cards-pathway-container .default-content-wrapper::after {
+    top: -70px;
+    bottom: -70px;
+    right: -150px;
+  }
+
+  .cards-pathway-container .default-content-wrapper::after {
+    background-image: url("https://www.canberra.edu.au/_designs/ucweb/common/images/indigenous-elements/trust.png");
+    background-position: center top 190px;
   }
 
   .cards-pathway-container .default-content-wrapper h2 {
-    font-size: 48px;
+    font-size: 70px;
   }
 
-  /* White card box overlaps the teal panel */
   .cards-pathway-wrapper {
     grid-column: 2;
     grid-row: 1;
-    z-index: 1;
-    margin: 32px 0 32px -80px;
-    padding: 40px;
+    padding: 24px;
     background-color: #fff;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
   }
 
   .cards-pathway > ul {
+    padding: 0;
     grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .cards-pathway > ul > li {
+    padding: 24px;
+    box-shadow: none;
   }
 }
