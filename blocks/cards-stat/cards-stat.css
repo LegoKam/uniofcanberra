@@ -1,101 +1,183 @@
-/*
- * cards-stat -- "Why study at UC" selling-point stat card
- * Values extracted from source computed styles:
- *   #selling_points_2378666 .selling-point.col-md-4
- * Each authored block contains ONE stat (icon + statement + attribution).
- * On the source, three stats sit side-by-side in a centered row; here that is
- * reproduced by flowing the three consecutive block wrappers as inline columns.
+/* cards-stat -- "Why study at UC" selling-point stats
+ * Row 1: background photo + teal feature card.
+ * Rows 2-4: three stats grouped in a white bar.
  */
 
-/* ---- Single stat card (decorated to ul > li) ---- */
-.cards-stat > ul {
-  list-style: none;
+.cards-stat-container {
+  max-width: var(--content-max-width, 1140px);
+  margin: 40px auto;
+  padding: 40px 24px;
+}
+
+.cards-stat-container > .default-content-wrapper,
+.cards-stat-container > .cards-stat-wrapper {
+  max-width: none;
   margin: 0;
   padding: 0;
 }
 
-.cards-stat > ul > li {
-  display: block;
+/* Visually hidden section title (present for accessibility) */
+.cards-stat-container .default-content-wrapper h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cards-stat > ul {
+  list-style: none;
   margin: 0;
-  padding: 16px 15px;
-  background-color: transparent;
-  border: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.cards-stat > ul > li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero row: photo + teal card */
+.cards-stat-hero {
+  display: contents;
+}
+
+.cards-stat-hero-image {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-stat-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.cards-stat-hero-content {
+  padding: 32px 24px;
+  background-color: #009abc;
+  color: #fff;
   text-align: center;
 }
 
-/* Icon image -- teal line icons, centered */
+.cards-stat-hero-content p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  line-height: 1.3;
+}
+
+.cards-stat-hero-content p:first-child {
+  margin-bottom: 16px;
+  line-height: 0;
+}
+
+.cards-stat-hero-content img {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.cards-stat-hero-content p:last-child {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* White stats bar */
+.cards-stat-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+}
+
+.cards-stat-stat {
+  padding: 16px 15px;
+  text-align: center;
+}
+
 .cards-stat .cards-stat-card-image {
   line-height: 0;
 }
 
 .cards-stat .cards-stat-card-image img {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 12px;
+  width: 100px;
+  height: auto;
+  margin: 16px auto;
   object-fit: contain;
 }
 
-/* Text block (statement + attribution) */
 .cards-stat .cards-stat-card-body {
   margin: 0;
 }
 
-/* Stat statement (first paragraph) */
 .cards-stat .cards-stat-card-body p {
   margin: 0 0 8px;
   color: var(--text-color);
   font-family: var(--body-font-family);
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.3;
   text-align: center;
 }
 
-/* Attribution (second, smaller paragraph) */
 .cards-stat .cards-stat-card-body p:last-child {
+  margin: 0;
   color: #767676;
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.3;
 }
 
-/* ---- "Why study at UC" default content: feature image + label ---- */
-/* The feature image ("Canberra's only Adobe Creative Campus") imports as a
-   bare <p><img>; constrain it so it doesn't blow the section height open. */
-.cards-stat-container > .default-content-wrapper h2 {
-  margin: 0 0 8px;
-  color: var(--text-color);
-  font-family: var(--heading-font-family);
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.05;
-}
-
-.cards-stat-container > .default-content-wrapper p {
-  margin: 0;
-}
-
-.cards-stat-container > .default-content-wrapper picture,
-.cards-stat-container > .default-content-wrapper img {
-  display: block;
-  width: auto;
-  max-width: 200px;
-  max-height: 140px;
-  height: auto;
-}
-
-/* ---- Row layout: three consecutive cards-stat blocks side-by-side ---- */
 @media (width >= 900px) {
-  main > .section > div.cards-stat-wrapper {
-    float: left;
-    width: 31%;
-    max-width: none;
-    margin: 0;
-    padding: 16px 10px;
+  .cards-stat > ul {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    align-items: end;
   }
 
-  /* Clear the float after the third stat card */
-  .cards-stat-container > .default-content-wrapper:has(h2) {
-    clear: both;
+  .cards-stat-hero-image {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-bottom: -80px;
+  }
+
+  .cards-stat-hero-image img {
+    width: 120%;
+    max-width: none;
+    margin-left: -10%;
+  }
+
+  .cards-stat-hero-content {
+    grid-column: 1;
+    grid-row: 2;
+    z-index: 1;
+    padding: 32px 24px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cards-stat-hero-content p:last-child {
+    font-size: 28px;
+  }
+
+  .cards-stat-stats {
+    grid-column: 2;
+    grid-row: 2;
+    grid-template-columns: repeat(3, 1fr);
+    z-index: 1;
+  }
+
+  .cards-stat-stat {
+    padding: 16px 15px 24px;
   }
 }
