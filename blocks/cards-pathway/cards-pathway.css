@@ -5,8 +5,8 @@
 
 .cards-pathway-container {
   width: 100%;
-  max-width: var(--content-max-width, 1140px);
-  margin-inline: auto;
+  max-width: none;
+  margin-inline: 0;
   padding: 40px 24px;
   box-sizing: border-box;
   display: grid;

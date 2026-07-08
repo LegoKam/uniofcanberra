@@ -289,13 +289,31 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  width: 100%;
+  max-width: var(--content-max-width, 1140px);
+  margin-block: 40px;
+  margin-inline: auto;
+  box-sizing: border-box;
 }
 
 main > .section > div {
   max-width: 1200px;
   margin: auto;
   padding: 0 24px;
+}
+
+/* block sections: let the container class control layout */
+main > .section[class$='-container'] > div {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+main > .section.hero-campaign-container {
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
 }
 
 main > .section:first-of-type {
@@ -305,6 +323,10 @@ main > .section:first-of-type {
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
+  }
+
+  main > .section[class$='-container'] > div {
+    padding: 0;
   }
 }
 
