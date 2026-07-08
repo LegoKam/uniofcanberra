@@ -156,6 +156,18 @@ Cache behavior:
 - Preview CDN (`.aem.page`): EDS defaults to ~60s for HTML ([network profile](https://www.aem.live/docs/network-profile))
 - Production CDN (`.aem.live`): EDS defaults to 2 hours after live publish
 
+## Authored DA pages take precedence
+
+If an author creates a course page in DA (for example `courses/uc-bec-127` in [da.live](https://da.live)), the BYOM `prerender` action returns **404** for that path. Per the [BYOM overlay lookup order](https://www.aem.live/developer/byom), AEM Admin then falls back to the primary DA source and publishes the authored page instead of the prerendered HTML.
+
+Detection uses `GET https://admin.da.live/source/{org}/{site}/courses/{code}.html` with the IMS token extracted from `AEM_ADMIN_API_AUTH_TOKEN`.
+
+To restore an authored page that was previously overlay-published, run:
+
+```bash
+TEST_COURSE_CODE=UC-BEC-127 npm run publish:test
+```
+
 ## Notes
 
 - This scaffold is App Builder-ready and intentionally avoids Vercel.

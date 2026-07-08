@@ -1,6 +1,7 @@
 /* Adobe I/O Runtime action: auto-publish a single course to preview */
 const { extractCourseCode, fetchCourses } = require('../lib/utils');
 const { publishCourse, CACHE_CONTROL } = require('../lib/publish');
+const { hasAuthoredCoursePage } = require('../lib/source');
 const { TtlCache } = require('../lib/cache');
 
 const publishCache = new TtlCache(Number(process.env.PUBLISH_CACHE_TTL_MS || 120000));
@@ -44,10 +45,13 @@ async function main(params = {}) {
       return jsonResponse(404, { error: `Course ${courseCode} not found in feed` });
     }
 
+    const authoredSource = await hasAuthoredCoursePage(courseCode, params);
     const published = await publishCourse(courseCode, params);
     const payload = {
       published: true,
       cached: false,
+      authoredSource,
+      prerenderSkipped: authoredSource,
       courseCode: published.courseCode,
       webPath: published.webPath,
       url: published.previewUrl,

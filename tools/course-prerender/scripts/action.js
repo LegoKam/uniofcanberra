@@ -2,6 +2,7 @@
 const { extractCourseCode } = require('../lib/utils');
 const { generateCourseHtml } = require('../lib/render');
 const { CACHE_CONTROL } = require('../lib/publish');
+const { hasAuthoredCoursePage } = require('../lib/source');
 const { TtlCache } = require('../lib/cache');
 
 const htmlCache = new TtlCache(Number(process.env.PUBLISH_CACHE_TTL_MS || 120000));
@@ -16,6 +17,14 @@ async function main(params = {}) {
         statusCode: 404,
         headers: { 'content-type': 'text/plain; charset=utf-8' },
         body: 'Not found',
+      };
+    }
+
+    if (await hasAuthoredCoursePage(courseCode, params)) {
+      return {
+        statusCode: 404,
+        headers: { 'content-type': 'text/plain; charset=utf-8' },
+        body: 'Course page exists in authored source',
       };
     }
 

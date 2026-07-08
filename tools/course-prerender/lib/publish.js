@@ -1,4 +1,5 @@
 const { fetchCourses } = require('./utils');
+const { hasAuthoredCoursePage } = require('./source');
 
 const CACHE_CONTROL = 'public, max-age=120, stale-while-revalidate=60';
 
@@ -72,8 +73,15 @@ async function publishAllCourses(options = {}) {
 
   for (const course of courses) {
     try {
+      const authoredSource = await hasAuthoredCoursePage(course.code, options);
       const published = await publishCourse(course.code, options);
-      results.push({ courseCode: course.code, status: 'published', ...published });
+      results.push({
+        courseCode: course.code,
+        status: 'published',
+        authoredSource,
+        prerenderSkipped: authoredSource,
+        ...published,
+      });
     } catch (error) {
       results.push({
         courseCode: course.code,

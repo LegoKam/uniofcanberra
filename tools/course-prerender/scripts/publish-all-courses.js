@@ -16,7 +16,8 @@ async function run() {
   const failed = results.filter((item) => item.status === 'failed');
 
   published.forEach((item) => {
-    console.log(`✓ ${item.courseCode} -> ${item.previewUrl}`);
+    const source = item.authoredSource ? 'authored DA page' : 'BYOM prerender';
+    console.log(`✓ ${item.courseCode} (${source}) -> ${item.previewUrl}`);
   });
 
   failed.forEach((item) => {

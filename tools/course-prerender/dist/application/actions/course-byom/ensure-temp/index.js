@@ -39,6 +39,7 @@ module.exports = {
 (module, __unused_webpack_exports, __webpack_require__) {
 
 const { fetchCourses } = __webpack_require__(359);
+const { hasAuthoredCoursePage } = __webpack_require__(69);
 
 const CACHE_CONTROL = 'public, max-age=120, stale-while-revalidate=60';
 
@@ -112,8 +113,15 @@ async function publishAllCourses(options = {}) {
 
   for (const course of courses) {
     try {
+      const authoredSource = await hasAuthoredCoursePage(course.code, options);
       const published = await publishCourse(course.code, options);
-      results.push({ courseCode: course.code, status: 'published', ...published });
+      results.push({
+        courseCode: course.code,
+        status: 'published',
+        authoredSource,
+        prerenderSkipped: authoredSource,
+        ...published,
+      });
     } catch (error) {
       results.push({
         courseCode: course.code,
@@ -131,6 +139,73 @@ module.exports = {
   getPublishConfig,
   publishCourse,
   publishAllCourses,
+};
+
+
+/***/ },
+
+/***/ 69
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const { TtlCache } = __webpack_require__(312);
+
+const authoredPageCache = new TtlCache(Number(process.env.PUBLISH_CACHE_TTL_MS || 120000));
+
+function extractImsToken(rawToken = '') {
+  const token = String(rawToken).replace(/^(Bearer|token)\s+/i, '').trim();
+  if (!token) return '';
+
+  const parts = token.split('.');
+  if (parts.length !== 3) return token;
+
+  try {
+    const payload = JSON.parse(Buffer.from(parts[1], 'base64url').toString());
+    return payload.imsToken || token;
+  } catch {
+    return token;
+  }
+}
+
+function getSourceConfig(options = {}) {
+  return {
+    org: options.org || options.AEM_ORG || process.env.AEM_ORG || 'legokam',
+    site: options.site || options.AEM_SITE || process.env.AEM_SITE || 'uniofcanberra',
+    token: extractImsToken(
+      options.token
+      || options.AEM_ADMIN_API_AUTH_TOKEN
+      || process.env.AEM_ADMIN_API_AUTH_TOKEN
+      || process.env.HLX_ADMIN_TOKEN,
+    ),
+  };
+}
+
+async function hasAuthoredCoursePage(courseCode, options = {}) {
+  const code = String(courseCode || '').toLowerCase();
+  if (!code || code === 'default') return false;
+
+  const cached = authoredPageCache.get(code);
+  if (cached !== null) return cached;
+
+  const { org, site, token } = getSourceConfig(options);
+  if (!token) {
+    return false;
+  }
+
+  const sourceUrl = `https://admin.da.live/source/${org}/${site}/courses/${code}.html`;
+  const response = await fetch(sourceUrl, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const exists = response.status === 200;
+  authoredPageCache.set(code, exists);
+  return exists;
+}
+
+module.exports = {
+  extractImsToken,
+  hasAuthoredCoursePage,
 };
 
 
@@ -345,6 +420,7 @@ var exports = __webpack_exports__;
 /* Adobe I/O Runtime action: auto-publish a single course to preview */
 const { extractCourseCode, fetchCourses } = __webpack_require__(359);
 const { publishCourse, CACHE_CONTROL } = __webpack_require__(425);
+const { hasAuthoredCoursePage } = __webpack_require__(69);
 const { TtlCache } = __webpack_require__(312);
 
 const publishCache = new TtlCache(Number(process.env.PUBLISH_CACHE_TTL_MS || 120000));
@@ -388,10 +464,13 @@ async function main(params = {}) {
       return jsonResponse(404, { error: `Course ${courseCode} not found in feed` });
     }
 
+    const authoredSource = await hasAuthoredCoursePage(courseCode, params);
     const published = await publishCourse(courseCode, params);
     const payload = {
       published: true,
       cached: false,
+      authoredSource,
+      prerenderSkipped: authoredSource,
       courseCode: published.courseCode,
       webPath: published.webPath,
       url: published.previewUrl,
