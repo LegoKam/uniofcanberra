@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 
 async function run() {
-  const org = process.env.AEM_ORG || 'legokam';
-  const site = process.env.AEM_SITE || 'uniofcanberra';
+  const org = 'legokam';
+  const site = 'uniofcanberra';
   const rawToken = process.env.AEM_ADMIN_API_AUTH_TOKEN || process.env.HLX_ADMIN_TOKEN;
   const overlayUrl = process.env.OVERLAY_URL;
   const suffix = process.env.OVERLAY_SUFFIX || '.html';
