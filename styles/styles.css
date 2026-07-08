@@ -56,6 +56,10 @@ body {
   line-height: 1.6;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body.appear {
   display: block;
 }

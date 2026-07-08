@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
+  overflow-x: clip;
 }
 
 .tabs-news-container > .default-content-wrapper,

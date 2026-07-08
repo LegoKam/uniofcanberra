@@ -12,6 +12,7 @@ header .nav-wrapper {
   background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
   position: relative;
+  overflow-x: clip;
 }
 
 header .nav-backdrop {

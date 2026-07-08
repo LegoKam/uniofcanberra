@@ -13,6 +13,7 @@
   grid-template-columns: 1fr;
   gap: 16px;
   align-items: center;
+  overflow-x: clip;
 }
 
 /* Neutralize global section wrapper constraints */

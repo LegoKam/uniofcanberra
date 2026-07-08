@@ -9,6 +9,7 @@
   margin-inline: 0;
   padding: 40px 24px;
   box-sizing: border-box;
+  overflow-x: clip;
 }
 
 .cards-stat-container > .default-content-wrapper,
@@ -182,7 +183,7 @@
     grid-column: 2;
     grid-row: 1;
     z-index: 0;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .cards-stat-hero-image::after {
