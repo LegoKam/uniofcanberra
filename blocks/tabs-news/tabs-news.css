@@ -4,9 +4,11 @@
  */
 
 .tabs-news-container {
+  width: 100%;
   max-width: var(--content-max-width, 1140px);
-  margin: 40px auto;
+  margin-inline: auto;
   padding: 40px 24px;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
@@ -14,6 +16,7 @@
 
 .tabs-news-container > .default-content-wrapper,
 .tabs-news-container > .tabs-news-wrapper {
+  width: 100%;
   max-width: none;
   margin: 0;
   padding: 0;
