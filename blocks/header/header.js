@@ -5,16 +5,50 @@ const isDesktop = window.matchMedia('(min-width: 900px)');
 
 function closeSearch(nav) {
   const search = nav.querySelector('.nav-search');
+  const toggle = nav.querySelector('.nav-search-toggle');
   if (search) search.classList.remove('open');
+  if (toggle) toggle.setAttribute('aria-expanded', 'false');
 }
 
 function toggleMenu(nav, expanded) {
   nav.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  const backdrop = nav.closest('.nav-wrapper')?.querySelector('.nav-backdrop');
+  if (backdrop) backdrop.classList.toggle('visible', expanded && !isDesktop.matches);
   document.body.style.overflowY = expanded && !isDesktop.matches ? 'hidden' : '';
-  const hamburger = nav.parentElement.querySelector('.nav-hamburger button');
+  const hamburger = nav.querySelector('.nav-hamburger button');
   if (hamburger) {
     hamburger.setAttribute('aria-label', expanded ? 'Close navigation' : 'Open navigation');
   }
+}
+
+function decorateUtility(nav) {
+  const navUtility = nav.querySelector('.nav-utility');
+  if (!navUtility) return;
+
+  const uls = [...navUtility.querySelectorAll(':scope > ul, :scope > .default-content-wrapper > ul')];
+  if (uls[0]) uls[0].classList.add('nav-utility-meta');
+  if (uls[1]) uls[1].classList.add('nav-utility-quick');
+
+  const safeItem = navUtility.querySelector('.nav-utility-meta a[href*="safe-community"]')
+    ?.closest('li');
+  if (safeItem) {
+    const highlight = document.createElement('div');
+    highlight.className = 'nav-utility-highlight';
+    highlight.append(safeItem.cloneNode(true));
+    nav.append(highlight);
+  }
+}
+
+function decorateSections(nav) {
+  const navSections = nav.querySelector('.nav-sections');
+  if (!navSections) return;
+
+  navSections.querySelectorAll('a').forEach((link) => {
+    const chevron = document.createElement('span');
+    chevron.className = 'nav-chevron';
+    chevron.setAttribute('aria-hidden', 'true');
+    link.append(chevron);
+  });
 }
 
 /**
@@ -37,7 +71,9 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  // Brand: strip the auto-button treatment off the logo link
+  decorateUtility(nav);
+  decorateSections(nav);
+
   const navBrand = nav.querySelector('.nav-brand');
   if (navBrand) {
     const brandLink = navBrand.querySelector('a');
@@ -48,7 +84,6 @@ export default async function decorate(block) {
     }
   }
 
-  // Tools: turn the "Search" text into a search toggle + input
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     navTools.innerHTML = `
@@ -68,7 +103,6 @@ export default async function decorate(block) {
     });
   }
 
-  // Hamburger (mobile)
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
@@ -77,23 +111,49 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => {
     const expanded = nav.getAttribute('aria-expanded') === 'true';
     toggleMenu(nav, !expanded);
+    if (!expanded) closeSearch(nav);
   });
+
+  const navActions = document.createElement('div');
+  navActions.className = 'nav-actions';
+  if (navTools) navActions.append(navTools);
+  navActions.append(hamburger);
+
+  if (navBrand) {
+    navBrand.after(navActions);
+  } else {
+    nav.append(navActions);
+  }
+
+  const mobileMenu = document.createElement('div');
+  mobileMenu.className = 'nav-mobile-menu';
+  const navSections = nav.querySelector('.nav-sections');
+  const quickUl = nav.querySelector('.nav-utility-quick');
+  if (navSections) mobileMenu.append(navSections);
+  if (quickUl) mobileMenu.append(quickUl.cloneNode(true));
+  const highlight = nav.querySelector('.nav-utility-highlight');
+  if (highlight) mobileMenu.append(highlight);
+  nav.append(mobileMenu);
 
   nav.setAttribute('aria-expanded', 'false');
 
-  // Reset menu/search state when crossing the desktop breakpoint
   isDesktop.addEventListener('change', () => {
     toggleMenu(nav, false);
     closeSearch(nav);
   });
 
-  // Close search on Escape
   window.addEventListener('keydown', (e) => {
-    if (e.code === 'Escape') closeSearch(nav);
+    if (e.code === 'Escape') {
+      closeSearch(nav);
+      toggleMenu(nav, false);
+    }
   });
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
-  navWrapper.append(hamburger, nav);
+  const backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  backdrop.addEventListener('click', () => toggleMenu(nav, false));
+  navWrapper.append(backdrop, nav);
   block.append(navWrapper);
 }
