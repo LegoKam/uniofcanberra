@@ -4,23 +4,31 @@ async function run() {
   const org = process.env.AEM_ORG || 'LegoKam';
   const site = process.env.AEM_SITE || 'uniofcanberra';
   const ref = process.env.AEM_REF || 'main';
-  const token = process.env.AEM_ADMIN_API_AUTH_TOKEN || process.env.HLX_ADMIN_TOKEN;
+  const rawToken = process.env.AEM_ADMIN_API_AUTH_TOKEN || process.env.HLX_ADMIN_TOKEN;
   const courseCode = process.env.TEST_COURSE_CODE || 'UC-BPT-107';
+  const token = (rawToken || '').replace(/^(Bearer|token)\s+/i, '').trim();
 
-  if (!token) {
+  if (!rawToken || !token) {
     throw new Error('Missing AEM_ADMIN_API_AUTH_TOKEN (or HLX_ADMIN_TOKEN)');
   }
 
   const previewUrl = `https://admin.hlx.page/preview/${org}/${site}/${ref}/courses/${courseCode}`;
+  const authHeaders = {
+    authorization: `token ${token}`,
+    'x-auth-token': token,
+  };
+
+  console.log(`Publishing preview for ${org}/${site}/${ref}/courses/${courseCode}`);
   const previewResp = await fetch(previewUrl, {
     method: 'POST',
-    headers: {
-      authorization: `token ${token}`,
-    },
+    headers: authHeaders,
   });
 
   if (!previewResp.ok) {
     const body = await previewResp.text();
+    if (previewResp.status === 404) {
+      throw new Error(`Preview publish failed (404): path not found in source/overlay. Confirm overlay is configured first for ${org}/${site}. Response: ${body}`);
+    }
     throw new Error(`Preview publish failed (${previewResp.status}): ${body}`);
   }
 

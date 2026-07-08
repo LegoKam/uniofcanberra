@@ -14,6 +14,7 @@ Lightweight prerender service for course detail pages, modeled after the templat
 ```bash
 cd tools/course-prerender
 npm install
+cp .env.example .env
 ```
 
 ## Run locally
@@ -26,7 +27,7 @@ Default local endpoint:
 
 - `http://localhost:8787/courses/UC-BPT-107`
 
-For Adobe App Builder Runtime, use `scripts/action.js` as your action entrypoint (it returns `text/html` for `/courses/{code}` paths).
+For Adobe App Builder Runtime, `scripts/action.js` is configured as the web action entrypoint (returns `text/html` for `/courses/{code}` paths).
 
 ## Environment variables
 
@@ -52,6 +53,30 @@ npm run render:test
 
 Writes `tools/course-prerender/out/UC-BPT-107.html`.
 
+## Deploy to Adobe App Builder (no Vercel)
+
+This scaffold includes `app.config.yaml` in the same style as `aem-commerce-prerender`:
+
+- package: `course-byom`
+- web action: `prerender`
+- action file: `scripts/action.js`
+
+From this folder:
+
+```bash
+aio app use <your-downloaded-app-builder-project.json>
+export AIO_RUNTIME_NAMESPACE="<your-runtime-namespace>"
+npm run appbuilder:deploy
+```
+
+If deploy reports `missing Adobe I/O Runtime namespace`, your workspace is selected but runtime namespace is not set in shell; export `AIO_RUNTIME_NAMESPACE` and run deploy again.
+
+After deploy, get your public action URL and set it as:
+
+```bash
+OVERLAY_URL="https://<namespace>.adobeioruntime.net/api/v1/web/course-byom/prerender"
+```
+
 ## Configure overlay in AEM Admin
 
 `OVERLAY_URL` must point to a publicly reachable BYOM endpoint.
@@ -72,5 +97,6 @@ This triggers:
 
 ## Notes
 
-- This repo does not deploy the service by itself; deploy this service to your non-Vercel runtime (for example Adobe App Builder Runtime) and set `OVERLAY_URL` to that public endpoint.
+- This scaffold is App Builder-ready and intentionally avoids Vercel.
+- The Admin API scripts require a valid `AEM_ADMIN_API_AUTH_TOKEN`.
 - For best authoring flow, set `/courses/default` to include a `course-details` block so the template replacement target is explicit.

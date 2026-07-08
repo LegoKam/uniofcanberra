@@ -1,0 +1,18 @@
+application:
+  actions: "."
+  runtimeManifest:
+    packages:
+      course-byom:
+        license: "Apache-2.0"
+        inputs:
+          COURSE_API_URL: "${COURSE_API_URL}"
+          COURSE_TEMPLATE_URL: "${COURSE_TEMPLATE_URL}"
+          COURSE_URL_FORMAT: "${COURSE_URL_FORMAT}"
+          SITE_BASE_URL: "${SITE_BASE_URL}"
+        actions:
+          prerender:
+            function: "scripts/action.js"
+            web: "yes"
+            runtime: "nodejs:22"
+            annotations:
+              final: true

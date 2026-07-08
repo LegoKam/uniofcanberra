@@ -1,0 +1,30 @@
+{
+  "project": {
+    "id": "4566206088345709476",
+    "name": "958OrangeLandfowl",
+    "title": "EDSPrenderer",
+    "description": "EDS Prenderer",
+    "org": {
+      "id": "31876",
+      "name": "Adobe AGS489",
+      "ims_org_id": "523BF0605768FF0E7F000101@AdobeOrg"
+    },
+    "workspace": {
+      "id": "4566206088345749014",
+      "name": "Production",
+      "title": "Production",
+      "description": "Project production workspace",
+      "action_url": "https://31876-958orangelandfowl.adobeioruntime.net",
+      "app_url": "https://31876-958orangelandfowl.adobeio-static.net",
+      "details": {
+        "credentials": [],
+        "services": [],
+        "events": {
+          "registrations": []
+        },
+        "mesh": {}
+      },
+      "endpoints": {}
+    }
+  }
+}

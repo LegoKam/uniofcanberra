@@ -30,7 +30,7 @@ async function main(params = {}) {
     return {
       statusCode: error.statusCode || 500,
       headers: { 'content-type': 'text/plain; charset=utf-8' },
-      body: error.statusCode === 404 ? 'Course not found' : 'Rendering error',
+      body: error.statusCode === 404 ? 'Course not found' : `Rendering error: ${error.message || 'unknown'}`,
     };
   }
 }

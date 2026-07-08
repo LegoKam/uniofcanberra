@@ -1,0 +1,35 @@
+<div class="course-details">
+  <div>
+    <div>
+      <h1>{{course.name}} ({{course.code}})</h1>
+      <p>{{course.description}}</p>
+
+      <h2>Course Snapshot</h2>
+      <ul>
+        <li><strong>Faculty:</strong> {{course.faculty}}</li>
+        <li><strong>Study level:</strong> {{course.studyLevel}}</li>
+        <li><strong>Duration:</strong> {{course.durationLabel}}</li>
+        <li><strong>Credit points:</strong> {{course.creditPoints}}</li>
+        <li><strong>Delivery mode:</strong> {{course.delivery}}</li>
+      </ul>
+
+      <h2>Learning outcomes</h2>
+      <ol>
+        {{#each course.learningOutcomeItems}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ol>
+
+      <h2>Career pathways</h2>
+      <ol>
+        {{#each course.careerPathwayItems}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ol>
+
+      {{#if course.promoVideoUrl}}
+        <p><a href="{{course.promoVideoUrl}}">Watch course video</a></p>
+      {{/if}}
+    </div>
+  </div>
+</div>
