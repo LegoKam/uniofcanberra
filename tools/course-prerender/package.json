@@ -10,6 +10,7 @@
     "render:test": "node scripts/render-test-course.js",
     "configure:overlay": "node scripts/configure-overlay.js",
     "publish:test": "node scripts/publish-test-course.js",
+    "publish:all": "node scripts/publish-all-courses.js",
     "appbuilder:deploy": "aio app deploy",
     "appbuilder:undeploy": "aio app undeploy"
   },

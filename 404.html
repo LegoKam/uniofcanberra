@@ -35,6 +35,20 @@
     import { sampleRUM } from '/scripts/aem.js';
     sampleRUM('404', { source: document.referrer });
   </script>
+  <script nonce="aem" type="module">
+    import {
+      extractCourseCodeFromPath,
+      handleCourse404AutoPublish,
+    } from '/scripts/course-auto-publish.js';
+
+    if (extractCourseCodeFromPath()) {
+      const status = document.createElement('p');
+      status.className = 'course-publish-status';
+      status.textContent = 'Preparing course page…';
+      document.querySelector('main.error .section')?.append(status);
+      handleCourse404AutoPublish();
+    }
+  </script>
   <link rel="stylesheet" href="/styles/styles.css">
   <style>
     main.error {

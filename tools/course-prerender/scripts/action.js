@@ -1,6 +1,10 @@
 /* Adobe I/O Runtime action entrypoint */
 const { extractCourseCode } = require('../lib/utils');
 const { generateCourseHtml } = require('../lib/render');
+const { CACHE_CONTROL } = require('../lib/publish');
+const { TtlCache } = require('../lib/cache');
+
+const htmlCache = new TtlCache(Number(process.env.PUBLISH_CACHE_TTL_MS || 120000));
 
 async function main(params = {}) {
   try {
@@ -15,15 +19,32 @@ async function main(params = {}) {
       };
     }
 
+    const cachedHtml = htmlCache.get(courseCode);
+    if (cachedHtml) {
+      return {
+        statusCode: 200,
+        headers: {
+          'content-type': 'text/html; charset=utf-8',
+          'cache-control': CACHE_CONTROL,
+        },
+        body: cachedHtml,
+      };
+    }
+
     const html = await generateCourseHtml(courseCode, {
       courseApiUrl: process.env.COURSE_API_URL,
       courseTemplateUrl: process.env.COURSE_TEMPLATE_URL,
       siteBaseUrl: process.env.SITE_BASE_URL,
     });
 
+    htmlCache.set(courseCode, html);
+
     return {
       statusCode: 200,
-      headers: { 'content-type': 'text/html; charset=utf-8' },
+      headers: {
+        'content-type': 'text/html; charset=utf-8',
+        'cache-control': CACHE_CONTROL,
+      },
       body: html,
     };
   } catch (error) {

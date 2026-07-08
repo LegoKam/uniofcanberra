@@ -9,6 +9,11 @@ application:
           COURSE_TEMPLATE_URL: "${COURSE_TEMPLATE_URL}"
           COURSE_URL_FORMAT: "${COURSE_URL_FORMAT}"
           SITE_BASE_URL: "${SITE_BASE_URL}"
+          AEM_ADMIN_API_AUTH_TOKEN: "${AEM_ADMIN_API_AUTH_TOKEN}"
+          AEM_ORG: "${AEM_ORG}"
+          AEM_SITE: "${AEM_SITE}"
+          AEM_REF: "${AEM_REF}"
+          PUBLISH_CACHE_TTL_MS: "${PUBLISH_CACHE_TTL_MS}"
         actions:
           prerender:
             function: "scripts/action.js"
@@ -16,3 +21,19 @@ application:
             runtime: "nodejs:22"
             annotations:
               final: true
+          ensure:
+            function: "scripts/ensure-action.js"
+            web: "yes"
+            runtime: "nodejs:22"
+            annotations:
+              final: true
+          sync-courses:
+            function: "scripts/sync-action.js"
+            web: "yes"
+            runtime: "nodejs:22"
+            limits:
+              timeout: 300000
+              memory: 256
+            annotations:
+              final: true
+              schedule: "0 */2 * * * *"

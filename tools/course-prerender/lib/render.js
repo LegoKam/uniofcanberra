@@ -31,6 +31,7 @@ const HEAD_PARTIAL = `<title>{{title}}</title>
 <meta name="twitter:title" content="{{title}}">
 <meta name="twitter:description" content="{{description}}">
 <meta name="course-code" content="{{course.code}}">
+<meta name="cache-control" content="max-age=120">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

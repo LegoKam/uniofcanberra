@@ -5293,6 +5293,141 @@ module.exports = require("fs");
 
 /***/ },
 
+/***/ 312
+(module) {
+
+class TtlCache {
+  constructor(ttlMs = 120000) {
+    this.ttlMs = ttlMs;
+    this.store = new Map();
+  }
+
+  get(key) {
+    const entry = this.store.get(key);
+    if (!entry) return null;
+    if (Date.now() > entry.expires) {
+      this.store.delete(key);
+      return null;
+    }
+    return entry.value;
+  }
+
+  set(key, value) {
+    this.store.set(key, {
+      value,
+      expires: Date.now() + this.ttlMs,
+    });
+  }
+}
+
+module.exports = {
+  TtlCache,
+};
+
+
+/***/ },
+
+/***/ 806
+(module, __unused_webpack_exports, __webpack_require__) {
+
+const { fetchCourses } = __webpack_require__(359);
+
+const CACHE_CONTROL = 'public, max-age=120, stale-while-revalidate=60';
+
+function getPublishConfig(overrides = {}) {
+  const rawToken = overrides.token
+    || overrides.AEM_ADMIN_API_AUTH_TOKEN
+    || process.env.AEM_ADMIN_API_AUTH_TOKEN
+    || process.env.HLX_ADMIN_TOKEN;
+  const token = (rawToken || '').replace(/^(Bearer|token)\s+/i, '').trim();
+
+  return {
+    org: overrides.org || overrides.AEM_ORG || process.env.AEM_ORG || 'legokam',
+    site: overrides.site || overrides.AEM_SITE || process.env.AEM_SITE || 'uniofcanberra',
+    ref: overrides.ref || overrides.AEM_REF || process.env.AEM_REF || 'main',
+    token,
+  };
+}
+
+function getAuthHeaders(token) {
+  return {
+    authorization: `token ${token}`,
+    'x-auth-token': token,
+  };
+}
+
+async function publishCourse(courseCode, options = {}) {
+  const { org, site, ref, token } = getPublishConfig(options);
+
+  if (!token) {
+    const error = new Error('Missing AEM_ADMIN_API_AUTH_TOKEN (or HLX_ADMIN_TOKEN)');
+    error.statusCode = 500;
+    throw error;
+  }
+
+  const normalizedCode = String(courseCode || '').toUpperCase();
+  if (!normalizedCode) {
+    const error = new Error('Missing course code');
+    error.statusCode = 400;
+    throw error;
+  }
+
+  const previewUrl = `https://admin.hlx.page/preview/${org}/${site}/${ref}/courses/${normalizedCode}`;
+  const previewResp = await fetch(previewUrl, {
+    method: 'POST',
+    headers: getAuthHeaders(token),
+  });
+
+  if (!previewResp.ok) {
+    const body = await previewResp.text();
+    const error = new Error(`Preview publish failed (${previewResp.status}): ${body}`);
+    error.statusCode = previewResp.status;
+    throw error;
+  }
+
+  const result = await previewResp.json();
+  const webPath = result?.webPath || `/courses/${normalizedCode.toLowerCase()}`;
+  const previewUrlOut = result?.preview?.url
+    || `https://${ref}--${site}--${org}.aem.page${webPath}`;
+
+  return {
+    courseCode: normalizedCode,
+    webPath,
+    previewUrl: previewUrlOut,
+    raw: result,
+  };
+}
+
+async function publishAllCourses(options = {}) {
+  const courses = await fetchCourses(options.courseApiUrl);
+  const results = [];
+
+  for (const course of courses) {
+    try {
+      const published = await publishCourse(course.code, options);
+      results.push({ courseCode: course.code, status: 'published', ...published });
+    } catch (error) {
+      results.push({
+        courseCode: course.code,
+        status: 'failed',
+        error: error.message,
+      });
+    }
+  }
+
+  return results;
+}
+
+module.exports = {
+  CACHE_CONTROL,
+  getPublishConfig,
+  publishCourse,
+  publishAllCourses,
+};
+
+
+/***/ },
+
 /***/ 656
 (module, __unused_webpack_exports, __webpack_require__) {
 
@@ -5329,6 +5464,7 @@ const HEAD_PARTIAL = `<title>{{title}}</title>
 <meta name="twitter:title" content="{{title}}">
 <meta name="twitter:description" content="{{description}}">
 <meta name="course-code" content="{{course.code}}">
+<meta name="cache-control" content="max-age=120">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5411,7 +5547,7 @@ async function generateCourseHtml(courseCode, options = {}) {
 
   return template({
     title,
-    canonicalUrl: `${(options.siteBaseUrl || 'https://main--uniofcanberra--legokam.aem.page').replace(/\/$/, '')}/courses/${course.code}`,
+    canonicalUrl: `${(options.siteBaseUrl || 'https://main--uniofcanberra--legokam.aem.page').replace(/\/$/, '')}/courses/${course.code.toLowerCase()}`,
     description: course.description,
     course,
   });
@@ -5633,6 +5769,10 @@ var exports = __webpack_exports__;
 /* Adobe I/O Runtime action entrypoint */
 const { extractCourseCode } = __webpack_require__(359);
 const { generateCourseHtml } = __webpack_require__(656);
+const { CACHE_CONTROL } = __webpack_require__(806);
+const { TtlCache } = __webpack_require__(312);
+
+const htmlCache = new TtlCache(Number(process.env.PUBLISH_CACHE_TTL_MS || 120000));
 
 async function main(params = {}) {
   try {
@@ -5647,15 +5787,32 @@ async function main(params = {}) {
       };
     }
 
+    const cachedHtml = htmlCache.get(courseCode);
+    if (cachedHtml) {
+      return {
+        statusCode: 200,
+        headers: {
+          'content-type': 'text/html; charset=utf-8',
+          'cache-control': CACHE_CONTROL,
+        },
+        body: cachedHtml,
+      };
+    }
+
     const html = await generateCourseHtml(courseCode, {
       courseApiUrl: process.env.COURSE_API_URL,
       courseTemplateUrl: process.env.COURSE_TEMPLATE_URL,
       siteBaseUrl: process.env.SITE_BASE_URL,
     });
 
+    htmlCache.set(courseCode, html);
+
     return {
       statusCode: 200,
-      headers: { 'content-type': 'text/html; charset=utf-8' },
+      headers: {
+        'content-type': 'text/html; charset=utf-8',
+        'cache-control': CACHE_CONTROL,
+      },
       body: html,
     };
   } catch (error) {

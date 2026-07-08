@@ -114,9 +114,47 @@ OVERLAY_URL="https://<your-public-byo-endpoint>" npm run configure:overlay
 TEST_COURSE_CODE=UC-BPT-107 npm run publish:test
 ```
 
+Publish all courses from the feed:
+
+```bash
+npm run publish:all
+```
+
 This triggers:
 
 - `POST https://admin.hlx.page/preview/{org}/{site}/{ref}/courses/{courseCode}`
+
+## Auto-publish and CDN cache (2 minutes)
+
+After deploy, three App Builder actions are available:
+
+| Action | URL suffix | Purpose |
+|--------|------------|---------|
+| `prerender` | `/prerender/courses/{code}.html` | BYOM HTML generation (cached 2 min in runtime) |
+| `ensure` | `/ensure?courseCode={code}` | Publish one course to preview if missing |
+| `sync-courses` | `/sync-courses` | Publish all courses (runs every 2 min via schedule) |
+
+Site-side auto-publish:
+
+- `404.html` calls `ensure` when a `/courses/{code}` page is missing, then reloads
+- `course-catalog` warm-publishes all courses in the background when the catalog loads
+- Browser session cache avoids duplicate ensure calls within 2 minutes
+
+Deploy with admin token so `ensure` and `sync-courses` can publish:
+
+```bash
+# .env must include AEM_ADMIN_API_AUTH_TOKEN
+aio app deploy
+npm run publish:all
+```
+
+Update `head.html` meta `course-ensure-url` if your runtime namespace changes.
+
+Cache behavior:
+
+- App Builder prerender/ensure responses: `Cache-Control: public, max-age=120`
+- Preview CDN (`.aem.page`): EDS defaults to ~60s for HTML ([network profile](https://www.aem.live/docs/network-profile))
+- Production CDN (`.aem.live`): EDS defaults to 2 hours after live publish
 
 ## Notes
 

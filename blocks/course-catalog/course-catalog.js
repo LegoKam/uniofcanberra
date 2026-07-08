@@ -1,3 +1,5 @@
+import { warmPublishCourses } from '../../scripts/course-auto-publish.js';
+
 const DEFAULT_API = 'https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSay4Xe-pjISF73XwDlALajDy3HyBaDPmMgMtrv9SBzyiVOPAr_I3gfJUK34Cdit9qI-ry-HxnsO0lgWdl9iV2Zorq9_jFY6Ge4xuGJey5U2Hzf4RKs6IDCCBWLkJh_QKp1_hLSm8TUyqUHTB2e8XSboRRgHGziIDxJbvnjq2Qlolj5N21rtReIsVdnY2zvjjglK_lP2I1EyWnQArb57aJopRivV8Si8MsRubiGTXJwy35obswdKYT3sEbCI-8J5ttZs60Q42-3vegJhde6Ma5vmR89ig&lib=McI758pGcVz3y2ie2K0qCakWpqKg1bUk2';
 
 const PERSONAS = [
@@ -265,6 +267,8 @@ export default async function decorate(block) {
       resultsGrid: block.querySelector('.course-catalog-results'),
       resultsCount: block.querySelector('.course-catalog-results-count'),
     });
+
+    warmPublishCourses(courses.map((course) => course.code));
   } catch (error) {
     block.innerHTML = `<p class="course-catalog-error">Unable to load courses. Please try again later.</p>`;
     // eslint-disable-next-line no-console
