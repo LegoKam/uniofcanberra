@@ -53,8 +53,20 @@ export default function decorate(block) {
     if (stats) stats.append(buildStat(row));
   });
 
-  ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+  ul.querySelectorAll('.cards-stat-hero-image picture > img').forEach((img) => {
+    const optimizedPic = createOptimizedPicture(
+      img.src,
+      img.alt,
+      false,
+      [{ media: '(min-width: 900px)', width: '1200' }, { width: '750' }],
+    );
+    moveInstrumentation(img, optimizedPic.querySelector('img'));
+    img.closest('picture').replaceWith(optimizedPic);
+  });
+
+  ul.querySelectorAll('.cards-stat-stat picture > img').forEach((img) => {
+    if (img.src.includes('.svg')) return;
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '160' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });

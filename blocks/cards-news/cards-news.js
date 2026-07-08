@@ -15,7 +15,8 @@ export default function decorate(block) {
     ul.append(li);
   });
   ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    if (img.src.includes('.svg')) return;
+    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '400' }]);
     moveInstrumentation(img, optimizedPic.querySelector('img'));
     img.closest('picture').replaceWith(optimizedPic);
   });

@@ -5,7 +5,6 @@ import {
   decorateSections,
   decorateBlocks,
   decorateTemplateAndTheme,
-  waitForFirstImage,
   loadSection,
   loadSections,
   loadCSS,
@@ -38,15 +37,47 @@ if (window.trustedTypes && window.trustedTypes.createPolicy) {
 }
 
 /**
- * load fonts.css and set a session storage flag
+ * Preload the hero LCP image before block decoration.
+ * @param {Element} main The main element
  */
-async function loadFonts() {
-  await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
-  try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
-  } catch (e) {
-    // do nothing
+function preloadLCPImage(main) {
+  const img = main.querySelector('.hero-campaign picture img[src]');
+  if (!img) return;
+
+  const href = new URL(img.getAttribute('src'), window.location.href).href;
+  if (document.querySelector(`link[rel="preload"][href="${href}"]`)) return;
+
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = href;
+  link.fetchPriority = 'high';
+
+  const webpSource = img.closest('picture')?.querySelector('source[type="image/webp"]');
+  if (webpSource?.srcset) {
+    link.setAttribute('imagesrcset', webpSource.getAttribute('srcset'));
+    link.setAttribute('imagesizes', '100vw');
   }
+
+  document.head.append(link);
+}
+
+/**
+ * Wait for the LCP image in the first section.
+ * @param {Element} section section element
+ */
+async function waitForLCP(section) {
+  const lcpCandidate = section.querySelector('.hero-campaign img, img');
+  await new Promise((resolve) => {
+    if (lcpCandidate && !lcpCandidate.complete) {
+      lcpCandidate.setAttribute('loading', 'eager');
+      lcpCandidate.setAttribute('fetchpriority', 'high');
+      lcpCandidate.addEventListener('load', resolve);
+      lcpCandidate.addEventListener('error', resolve);
+    } else {
+      resolve();
+    }
+  });
 }
 
 /**
@@ -181,18 +212,10 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    preloadLCPImage(main);
     decorateMain(main);
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
-  }
-
-  try {
-    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
-    if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
-      loadFonts();
-    }
-  } catch (e) {
-    // do nothing
+    await loadSection(main.querySelector('.section'), waitForLCP);
   }
 }
 
@@ -213,7 +236,6 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  loadFonts();
 }
 
 /**
