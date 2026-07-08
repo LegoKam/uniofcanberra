@@ -202,7 +202,7 @@ function renderCourse(block, course) {
   homeLink.textContent = 'Home';
 
   const searchLink = document.createElement('a');
-  searchLink.href = '/courses/default';
+  searchLink.href = '/courses/';
   searchLink.textContent = 'Find your course';
 
   const current = document.createElement('span');
