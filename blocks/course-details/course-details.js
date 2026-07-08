@@ -10,6 +10,39 @@ function getCourseCodeFromPath() {
   return code.toUpperCase();
 }
 
+function isDefaultCoursePath(pathname = window.location.pathname) {
+  return /^\/courses\/default\/?$/i.test(pathname);
+}
+
+function getCourseCodeFromInlinePreview(block) {
+  const rows = [...block.children];
+
+  for (const row of rows) {
+    const directColumns = [...row.children];
+    const columns = directColumns.length >= 2 ? directColumns : [...(directColumns[0]?.children || [])];
+    if (columns.length < 2) continue;
+
+    const key = columns[0].textContent.trim().toLowerCase();
+    const value = columns[1].textContent.trim();
+    if (key === 'default' && value) {
+      return value.toUpperCase();
+    }
+  }
+
+  return '';
+}
+
+function resolveCourseCode(block) {
+  const codeFromPath = getCourseCodeFromPath();
+  if (codeFromPath) return codeFromPath;
+
+  if (isDefaultCoursePath()) {
+    return getCourseCodeFromInlinePreview(block);
+  }
+
+  return '';
+}
+
 function getStudyLevel(courseName = '') {
   const name = courseName.toLowerCase();
   if (name.includes('master') || name.includes('graduate certificate') || name.includes('graduate diploma')) {
@@ -279,7 +312,7 @@ function renderNotFound(block, code) {
 }
 
 export default async function decorate(block) {
-  const courseCode = getCourseCodeFromPath();
+  const courseCode = resolveCourseCode(block);
   block.textContent = '';
   block.classList.add('loading');
 
