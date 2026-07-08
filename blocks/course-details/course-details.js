@@ -317,7 +317,7 @@ export default async function decorate(block) {
   block.classList.add('loading');
 
   if (!courseCode) {
-    block.innerHTML = '<p class="course-details-error">No course code found in the URL.</p>';
+    block.innerHTML = '<p class="course-details-error">No course code found.</p>';
     block.classList.remove('loading');
     return;
   }
