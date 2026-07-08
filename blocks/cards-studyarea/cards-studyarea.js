@@ -4,7 +4,7 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 function buildSearchForm(container) {
   const form = document.createElement('form');
   form.className = 'cards-studyarea-search-form';
-  form.action = '/future-students/study-at-uc/find-a-course';
+  form.action = '/courses/';
   form.method = 'get';
 
   const label = document.createElement('label');
@@ -15,7 +15,7 @@ function buildSearchForm(container) {
   const input = document.createElement('input');
   input.id = 'cards-studyarea-search';
   input.type = 'search';
-  input.name = 'search';
+  input.name = 'q';
   input.placeholder = 'Find your course';
 
   const button = document.createElement('button');

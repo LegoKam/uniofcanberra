@@ -59,14 +59,18 @@ function buildTile(course) {
   const tile = document.createElement('article');
   tile.className = 'course-catalog-tile';
 
-  const link = document.createElement('a');
-  link.className = 'course-catalog-tile-link';
-  link.href = `/courses/${course.code.toLowerCase()}`;
+  const body = document.createElement('div');
+  body.className = 'course-catalog-tile-body';
 
   const title = document.createElement('h3');
-  title.textContent = `${course.name} (${course.code})`;
+  title.className = 'course-catalog-tile-title';
+  const link = document.createElement('a');
+  link.href = `/courses/${course.code.toLowerCase()}`;
+  link.textContent = `${course.name} (${course.code})`;
+  title.append(link);
 
   const description = document.createElement('p');
+  description.className = 'course-catalog-tile-description';
   description.textContent = course.description;
 
   const meta = document.createElement('p');
@@ -75,8 +79,8 @@ function buildTile(course) {
   metaLabel.textContent = 'Study level:';
   meta.append(metaLabel, ` ${course.studyLevel}`);
 
-  link.append(title, description, meta);
-  tile.append(link);
+  body.append(title, description, meta);
+  tile.append(body);
   return tile;
 }
 
@@ -247,15 +251,17 @@ export default async function decorate(block) {
     const markup = buildMarkup(faculties, deliveries, studyLevels);
     block.append(markup);
 
+    const initialQuery = new URLSearchParams(window.location.search).get('q') || '';
+
     const state = {
-      query: '',
+      query: initialQuery,
       faculty: '',
       delivery: '',
       studyLevel: '',
       persona: 'future',
     };
 
-    bindEvents(block, courses, state, {
+    const refs = {
       searchInput: block.querySelector('#course-catalog-search'),
       clearBtn: block.querySelector('.course-catalog-clear'),
       searchForm: block.querySelector('.course-catalog-search-form'),
@@ -266,7 +272,14 @@ export default async function decorate(block) {
       studyLevelSelect: block.querySelector('#course-catalog-study-level'),
       resultsGrid: block.querySelector('.course-catalog-results'),
       resultsCount: block.querySelector('.course-catalog-results-count'),
-    });
+    };
+
+    if (initialQuery) {
+      refs.searchInput.value = initialQuery;
+      refs.clearBtn.hidden = false;
+    }
+
+    bindEvents(block, courses, state, refs);
 
     warmPublishCourses(courses.map((course) => course.code));
   } catch (error) {

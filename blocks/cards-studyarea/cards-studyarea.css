@@ -69,11 +69,14 @@
 }
 
 .cards-studyarea-search-form {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
   width: 100%;
-  height: 55px;
-  padding: 10px 65px 10px 20px;
-  background: #e3f5f8;
+  height: 52px;
+  padding: 4px 4px 4px 24px;
+  background: #ebf8fc;
   border: 1px solid transparent;
   border-radius: 9999px;
 }
@@ -83,31 +86,36 @@
 }
 
 .cards-studyarea-search-form input[type="search"] {
+  flex: 1;
+  min-width: 0;
   width: 100%;
-  height: 35px;
-  padding: 5px;
+  height: auto;
+  padding: 0;
   border: none;
   background: transparent;
   color: var(--text-color);
   font-family: var(--body-font-family);
-  font-size: 20px;
+  font-size: 18px;
   outline: none;
+  appearance: none;
+}
+
+.cards-studyarea-search-form input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
 }
 
 .cards-studyarea-search-form input[type="search"]::placeholder {
-  color: #18535e;
-  opacity: 0.5;
+  color: #7e98a1;
+  opacity: 1;
 }
 
 .cards-studyarea-search-form button[type="submit"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 55px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: none;
-  border-radius: 9999px;
+  border-radius: 50%;
   background: #009abc;
   appearance: none;
   cursor: pointer;
@@ -116,10 +124,10 @@
 .cards-studyarea-search-form button[type="submit"]::after {
   content: "";
   display: block;
-  width: 55px;
-  height: 55px;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
-  mask: url("../../icons/search.svg") center / 25px 25px no-repeat;
+  mask: url("../../icons/search.svg") center / 22px 22px no-repeat;
 }
 
 .cards-studyarea-sr-only {
@@ -200,22 +208,21 @@
   }
 
   .cards-studyarea-search-form {
-    height: 75px;
-    padding: 17.5px 92.5px 17.5px 35px;
+    height: 72px;
+    padding: 8px 8px 8px 32px;
+    gap: 16px;
   }
 
   .cards-studyarea-search-form input[type="search"] {
-    height: 40px;
     font-size: 24px;
   }
 
   .cards-studyarea-search-form button[type="submit"] {
-    width: 75px;
+    width: 56px;
+    height: 56px;
   }
 
   .cards-studyarea-search-form button[type="submit"]::after {
-    width: 75px;
-    height: 75px;
-    mask-size: 30px 30px;
+    mask-size: 28px 28px;
   }
 }

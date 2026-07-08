@@ -1,0 +1,27 @@
+{
+  "variantName": "quote",
+  "baseBlock": "standalone",
+  "version": "1.0.0",
+  "created": "2026-07-08T00:00:00.000Z",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "airy",
+    "purpose": "pull-quote"
+  },
+  "contentPattern": {
+    "structure": "single quote text cell",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "testimonials",
+      "pull quotes",
+      "featured statements"
+    ],
+    "notSuitableFor": [
+      "long-form articles",
+      "multi-author quote lists"
+    ]
+  }
+}
