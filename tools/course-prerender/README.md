@@ -27,6 +27,29 @@ Default local endpoint:
 
 - `http://localhost:8787/courses/UC-BPT-107`
 
+## Local proxy for `localhost` testing
+
+If you want a single local URL that behaves like production overlay routing:
+
+- `/courses/*` -> BYOM action
+- everything else -> your local EDS server (`localhost:3000`)
+
+Run in a second terminal:
+
+```bash
+npm run start:proxy
+```
+
+Then browse:
+
+- `http://localhost:3001/courses/UC-BCY-102`
+
+Optional overrides:
+
+```bash
+PROXY_PORT=3001 EDS_ORIGIN=http://localhost:3000 BYOM_ORIGIN=https://<your-action-url> npm run start:proxy
+```
+
 For Adobe App Builder Runtime, `scripts/action.js` is configured as the web action entrypoint (returns `text/html` for `/courses/{code}` paths).
 
 ## Environment variables
@@ -38,7 +61,7 @@ For Adobe App Builder Runtime, `scripts/action.js` is configured as the web acti
 - `SITE_BASE_URL` (default `https://main--uniofcanberra--legokam.aem.page`)
 - `AEM_ADMIN_API_AUTH_TOKEN` (required for Admin API scripts)
 - `HLX_ADMIN_TOKEN` (alternative to `AEM_ADMIN_API_AUTH_TOKEN`)
-- `AEM_ORG` (default `LegoKam`)
+- `AEM_ORG` (default `legokam`)
 - `AEM_SITE` (default `uniofcanberra`)
 - `AEM_REF` (default `main`)
 - `OVERLAY_URL` (required for overlay configuration)

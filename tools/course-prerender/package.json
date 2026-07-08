@@ -6,6 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node scripts/server.js",
+    "start:proxy": "node scripts/local-proxy.js",
     "render:test": "node scripts/render-test-course.js",
     "configure:overlay": "node scripts/configure-overlay.js",
     "publish:test": "node scripts/publish-test-course.js",
