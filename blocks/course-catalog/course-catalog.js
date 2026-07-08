@@ -59,7 +59,7 @@ function buildTile(course) {
 
   const link = document.createElement('a');
   link.className = 'course-catalog-tile-link';
-  link.href = `/courses/${course.code}`;
+  link.href = `/courses/${course.code.toLowerCase()}`;
 
   const title = document.createElement('h3');
   title.textContent = `${course.name} (${course.code})`;

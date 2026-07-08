@@ -1,7 +1,9 @@
-const cheerio = require('cheerio');
-
 const COURSE_API_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSay4Xe-pjISF73XwDlALajDy3HyBaDPmMgMtrv9SBzyiVOPAr_I3gfJUK34Cdit9qI-ry-HxnsO0lgWdl9iV2Zorq9_jFY6Ge4xuGJey5U2Hzf4RKs6IDCCBWLkJh_QKp1_hLSm8TUyqUHTB2e8XSboRRgHGziIDxJbvnjq2Qlolj5N21rtReIsVdnY2zvjjglK_lP2I1EyWnQArb57aJopRivV8Si8MsRubiGTXJwy35obswdKYT3sEbCI-8J5ttZs60Q42-3vegJhde6Ma5vmR89ig&lib=McI758pGcVz3y2ie2K0qCakWpqKg1bUk2';
 const COURSE_TEMPLATE_URL = 'https://main--uniofcanberra--legokam.aem.page/courses/default';
+const COURSE_CACHE_TTL_MS = 5 * 60 * 1000;
+
+let coursesCache = null;
+let coursesCacheTime = 0;
 
 function getStudyLevel(courseName = '') {
   const name = courseName.toLowerCase();
@@ -53,10 +55,14 @@ function normalizeCourse(raw) {
   };
 }
 
+function stripOverlaySuffix(segment = '') {
+  return segment.replace(/\.(html?|plain)$/i, '');
+}
+
 function extractCourseCode(pathname, format = '/courses/{courseCode}') {
   const directMatch = pathname.match(/\/courses\/([^/?#]+)/i);
   if (directMatch?.[1]) {
-    return decodeURIComponent(directMatch[1]).toUpperCase();
+    return stripOverlaySuffix(decodeURIComponent(directMatch[1])).toUpperCase();
   }
 
   const pathParts = pathname.split('/').filter(Boolean);
@@ -72,10 +78,15 @@ function extractCourseCode(pathname, format = '/courses/{courseCode}') {
     if (formatParts[i] !== pathParts[i]) return '';
   }
 
-  return decodeURIComponent(pathParts[keyIndex] || '').toUpperCase();
+  return stripOverlaySuffix(decodeURIComponent(pathParts[keyIndex] || '')).toUpperCase();
 }
 
 async function fetchCourses(courseApiUrl = COURSE_API_URL) {
+  const now = Date.now();
+  if (coursesCache && (now - coursesCacheTime) < COURSE_CACHE_TTL_MS) {
+    return coursesCache;
+  }
+
   const response = await fetch(courseApiUrl);
   if (!response.ok) {
     const error = new Error(`Failed to fetch course feed: ${response.status}`);
@@ -83,7 +94,39 @@ async function fetchCourses(courseApiUrl = COURSE_API_URL) {
     throw error;
   }
   const payload = await response.json();
-  return payload.map(normalizeCourse);
+  coursesCache = payload.map(normalizeCourse);
+  coursesCacheTime = now;
+  return coursesCache;
+}
+
+function replaceBlockWithToken(plainHtml, blockClass, token) {
+  const marker = `class="${blockClass}"`;
+  const markerIdx = plainHtml.indexOf(marker);
+  if (markerIdx === -1) return plainHtml;
+
+  const divStart = plainHtml.lastIndexOf('<div', markerIdx);
+  if (divStart === -1) return plainHtml;
+
+  let depth = 0;
+  let i = divStart;
+  while (i < plainHtml.length) {
+    if (plainHtml.startsWith('<div', i)) {
+      depth += 1;
+      i += 4;
+      continue;
+    }
+    if (plainHtml.startsWith('</div>', i)) {
+      depth -= 1;
+      i += 6;
+      if (depth === 0) {
+        return `${plainHtml.slice(0, divStart)}${token}${plainHtml.slice(i)}`;
+      }
+      continue;
+    }
+    i += 1;
+  }
+
+  return plainHtml;
 }
 
 async function prepareBaseTemplate(url, blocks = ['course-details', 'course-catalog']) {
@@ -96,24 +139,24 @@ async function prepareBaseTemplate(url, blocks = ['course-details', 'course-cata
     return resp.text();
   });
 
-  const $ = cheerio.load(plainHtml, null, false);
-  let replaced = false;
   const partialToken = '__COURSE_DETAILS_PARTIAL__';
+  let result = plainHtml;
+  let replaced = false;
 
   blocks.forEach((blockClass) => {
-    const target = $(`.${blockClass}`).first();
-    if (target.length > 0 && !replaced) {
-      target.replaceWith(partialToken);
+    if (replaced) return;
+    const next = replaceBlockWithToken(result, blockClass, partialToken);
+    if (next !== result) {
+      result = next;
       replaced = true;
     }
   });
 
   if (!replaced) {
-    $('main').append(partialToken);
+    result = `${result}${partialToken}`;
   }
 
-  const serialized = $('main').html() || $.html();
-  return serialized.replace(partialToken, '{{> course-details }}');
+  return result.replace(partialToken, '{{> course-details }}');
 }
 
 module.exports = {

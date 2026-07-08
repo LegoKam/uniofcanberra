@@ -32,8 +32,10 @@ async function run() {
     throw new Error(`Preview publish failed (${previewResp.status}): ${body}`);
   }
 
-  const liveUrl = `https://${ref}--${site}--${org}.aem.page/courses/${courseCode}`;
-  console.log(`Preview publish succeeded for /courses/${courseCode}`);
+  const result = await previewResp.json();
+  const previewPath = result?.webPath || `/courses/${courseCode.toLowerCase()}`;
+  const liveUrl = result?.preview?.url || `https://${ref}--${site}--${org}.aem.page${previewPath}`;
+  console.log(`Preview publish succeeded for ${previewPath}`);
   console.log(`Check URL: ${liveUrl}`);
 }
 

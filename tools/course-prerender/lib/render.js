@@ -113,7 +113,7 @@ async function generateCourseHtml(courseCode, options = {}) {
 
   return template({
     title,
-    canonicalUrl: `${(options.siteBaseUrl || 'https://main--uniofcanberra--legokam.aem.page').replace(/\/$/, '')}/courses/${course.code}`,
+    canonicalUrl: `${(options.siteBaseUrl || 'https://main--uniofcanberra--legokam.aem.page').replace(/\/$/, '')}/courses/${course.code.toLowerCase()}`,
     description: course.description,
     course,
   });
