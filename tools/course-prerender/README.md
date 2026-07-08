@@ -120,9 +120,16 @@ Publish all courses from the feed:
 npm run publish:all
 ```
 
+Live publish all courses from the feed (`.aem.live`):
+
+```bash
+npm run publish:all:live
+```
+
 This triggers:
 
-- `POST https://admin.hlx.page/preview/{org}/{site}/{ref}/courses/{courseCode}`
+- Preview: `POST https://admin.hlx.page/preview/{org}/{site}/{ref}/courses/{courseCode}`
+- Live: `POST https://admin.hlx.page/live/{org}/{site}/{ref}/courses/{courseCode}`
 
 ## Auto-publish and CDN cache (2 minutes)
 

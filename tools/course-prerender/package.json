@@ -11,6 +11,7 @@
     "configure:overlay": "node scripts/configure-overlay.js",
     "publish:test": "node scripts/publish-test-course.js",
     "publish:all": "node scripts/publish-all-courses.js",
+    "publish:all:live": "node scripts/publish-all-courses-live.js",
     "appbuilder:deploy": "aio app deploy",
     "appbuilder:undeploy": "aio app undeploy"
   },
