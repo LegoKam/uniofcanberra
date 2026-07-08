@@ -1,0 +1,18 @@
+{
+  "name": "course-prerender",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Lightweight BYOM prerender service for course detail pages",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node scripts/server.js",
+    "render:test": "node scripts/render-test-course.js",
+    "configure:overlay": "node scripts/configure-overlay.js",
+    "publish:test": "node scripts/publish-test-course.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "express": "^4.21.2",
+    "handlebars": "^4.7.8"
+  }
+}

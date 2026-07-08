@@ -1,0 +1,120 @@
+const cheerio = require('cheerio');
+
+const COURSE_API_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnSay4Xe-pjISF73XwDlALajDy3HyBaDPmMgMtrv9SBzyiVOPAr_I3gfJUK34Cdit9qI-ry-HxnsO0lgWdl9iV2Zorq9_jFY6Ge4xuGJey5U2Hzf4RKs6IDCCBWLkJh_QKp1_hLSm8TUyqUHTB2e8XSboRRgHGziIDxJbvnjq2Qlolj5N21rtReIsVdnY2zvjjglK_lP2I1EyWnQArb57aJopRivV8Si8MsRubiGTXJwy35obswdKYT3sEbCI-8J5ttZs60Q42-3vegJhde6Ma5vmR89ig&lib=McI758pGcVz3y2ie2K0qCakWpqKg1bUk2';
+const COURSE_TEMPLATE_URL = 'https://main--uniofcanberra--legokam.aem.page/courses/default';
+
+function getStudyLevel(courseName = '') {
+  const name = courseName.toLowerCase();
+  if (name.includes('master') || name.includes('graduate certificate') || name.includes('graduate diploma')) {
+    return 'Graduate';
+  }
+  if (name.includes('bachelor') || name.includes('diploma')) {
+    return 'Undergraduate';
+  }
+  return 'Other';
+}
+
+function getCreditPoints(duration = '') {
+  const match = duration.match(/(\d+)\s*Credit Points/i);
+  return match ? match[1] : '';
+}
+
+function getDuration(duration = '') {
+  const match = duration.match(/^([^/]+)/);
+  return match ? match[1].trim() : duration;
+}
+
+function parseDelimitedText(text = '') {
+  if (!text) return [];
+  return text
+    .split(/;(?=\s*[a-z])/i)
+    .map((item) => item.trim().replace(/\.$/, ''))
+    .filter(Boolean);
+}
+
+function normalizeCourse(raw) {
+  const duration = raw['Duration & Credit Points'] || '';
+  return {
+    code: (raw['Course Code'] || '').toUpperCase(),
+    name: raw['Course Name'] || '',
+    faculty: raw.Faculty || '',
+    description: raw['Course Description'] || '',
+    learningOutcomes: raw['Learning Outcomes'] || '',
+    careerPathways: raw['Career Pathways'] || '',
+    duration,
+    durationLabel: getDuration(duration),
+    creditPoints: getCreditPoints(duration),
+    delivery: raw['Delivery Mode'] || '',
+    heroImageUrl: raw['Hero Image URL'] || '',
+    promoVideoUrl: raw['Promo Video URL'] || '',
+    studyLevel: getStudyLevel(raw['Course Name'] || ''),
+    learningOutcomeItems: parseDelimitedText(raw['Learning Outcomes'] || ''),
+    careerPathwayItems: parseDelimitedText(raw['Career Pathways'] || ''),
+  };
+}
+
+function extractCourseCode(pathname, format = '/courses/{courseCode}') {
+  const pathParts = pathname.split('/').filter(Boolean);
+  const formatParts = format.split('/').filter(Boolean);
+  if (pathParts.length !== formatParts.length) return '';
+
+  const keyPart = formatParts.find((part) => /^\{.+\}$/.test(part));
+  if (!keyPart) return '';
+  const keyIndex = formatParts.indexOf(keyPart);
+
+  for (let i = 0; i < formatParts.length; i += 1) {
+    if (i === keyIndex) continue;
+    if (formatParts[i] !== pathParts[i]) return '';
+  }
+
+  return decodeURIComponent(pathParts[keyIndex] || '').toUpperCase();
+}
+
+async function fetchCourses(courseApiUrl = COURSE_API_URL) {
+  const response = await fetch(courseApiUrl);
+  if (!response.ok) {
+    const error = new Error(`Failed to fetch course feed: ${response.status}`);
+    error.statusCode = 502;
+    throw error;
+  }
+  const payload = await response.json();
+  return payload.map(normalizeCourse);
+}
+
+async function prepareBaseTemplate(url, blocks = ['course-details', 'course-catalog']) {
+  const plainHtml = await fetch(`${url.replace(/\/$/, '')}.plain.html`).then((resp) => {
+    if (!resp.ok) {
+      const error = new Error(`Failed to fetch template: ${resp.status}`);
+      error.statusCode = 502;
+      throw error;
+    }
+    return resp.text();
+  });
+
+  const $ = cheerio.load(plainHtml, null, false);
+  let replaced = false;
+  const partialToken = '__COURSE_DETAILS_PARTIAL__';
+
+  blocks.forEach((blockClass) => {
+    const target = $(`.${blockClass}`).first();
+    if (target.length > 0 && !replaced) {
+      target.replaceWith(partialToken);
+      replaced = true;
+    }
+  });
+
+  if (!replaced) {
+    $('main').append(partialToken);
+  }
+
+  const serialized = $('main').html() || $.html();
+  return serialized.replace(partialToken, '{{> course-details }}');
+}
+
+module.exports = {
+  COURSE_API_URL,
+  COURSE_TEMPLATE_URL,
+  extractCourseCode,
+  fetchCourses,
+  prepareBaseTemplate,
+};
