@@ -1,0 +1,26 @@
+{
+  "variantName": "related-courses",
+  "baseBlock": "standalone",
+  "version": "1.0.0",
+  "created": "2026-07-09T00:00:00.000Z",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "course-discovery"
+  },
+  "contentPattern": {
+    "structure": "lookup by faculty from course endpoint",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "course detail related links",
+      "faculty-based recommendations"
+    ],
+    "notSuitableFor": [
+      "cross-faculty recommendations",
+      "manual curated lists"
+    ]
+  }
+}
