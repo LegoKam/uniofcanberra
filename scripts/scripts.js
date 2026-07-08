@@ -254,9 +254,14 @@ async function loadPage() {
   loadDelayed();
 }
 
-(async function loadDa() {
-  if (!new URL(window.location.href).searchParams.get('dapreview')) return;
-  import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
-}());
+async function bootstrapPage() {
+  if (new URL(window.location.href).searchParams.get('dapreview')) {
+    const { default: daPreview } = await import('https://da.live/scripts/dapreview.js');
+    daPreview(loadPage);
+    return;
+  }
 
-loadPage();
+  loadPage();
+}
+
+bootstrapPage();
