@@ -1,6 +1,9 @@
 import { createOptimizedPicture, toClassName } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
+const DEFAULT_NEWS_INDEX = '/news-index.json';
+const NEWS_LIMIT = 3;
+
 function parsePanelItems(panel) {
   const items = [];
   let current = null;
@@ -24,6 +27,13 @@ function parsePanelItems(panel) {
 
   if (current) items.push(current);
   return { items, viewAll };
+}
+
+function getViewAllHref(contentCell, fallback = '/news') {
+  const link = [...contentCell.querySelectorAll('a')].find(
+    (anchor) => anchor.textContent.trim().toLowerCase().includes('view all'),
+  );
+  return link?.getAttribute('href') || fallback;
 }
 
 function buildNewsCard(item) {
@@ -56,6 +66,53 @@ function buildNewsCard(item) {
   return card;
 }
 
+function buildNewsCardFromData(item) {
+  const card = document.createElement('article');
+  card.className = 'tabs-news-card';
+
+  if (item.Image) {
+    const imageDiv = document.createElement('div');
+    imageDiv.className = 'tabs-news-card-image';
+    imageDiv.append(createOptimizedPicture(item.Image, item.Title || '', false, [{ width: '400' }]));
+    card.append(imageDiv);
+  }
+
+  const body = document.createElement('div');
+  body.className = 'tabs-news-card-body';
+
+  const date = document.createElement('p');
+  date.className = 'tabs-news-card-date';
+  date.textContent = item['Publication Date'] || '';
+  body.append(date);
+
+  const heading = document.createElement('h4');
+  const link = document.createElement('a');
+  link.href = item.path || '#';
+  link.textContent = item.Title || '';
+  heading.append(link);
+  body.append(heading);
+
+  if (item.Description) {
+    const excerpt = document.createElement('p');
+    excerpt.className = 'tabs-news-card-excerpt';
+    excerpt.textContent = item.Description;
+    body.append(excerpt);
+  }
+
+  card.append(body);
+  return card;
+}
+
+function appendViewAll(wrapper, href) {
+  const viewAll = document.createElement('p');
+  viewAll.className = 'tabs-news-view-all';
+  const link = document.createElement('a');
+  link.href = href;
+  link.textContent = 'View all';
+  viewAll.append(link);
+  wrapper.append(viewAll);
+}
+
 function buildPanel(panel) {
   const { items, viewAll } = parsePanelItems(panel);
   const wrapper = document.createElement('div');
@@ -71,14 +128,41 @@ function buildPanel(panel) {
   panel.replaceChildren(wrapper);
 }
 
-export default function decorate(block) {
+async function buildNewsPanel(panel, viewAllHref, newsIndexUrl = DEFAULT_NEWS_INDEX) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'tabs-news-cards';
+
+  try {
+    const response = await fetch(newsIndexUrl);
+    if (!response.ok) throw new Error(`Failed to load news (${response.status})`);
+
+    const payload = await response.json();
+    const items = (payload.data || []).slice(0, NEWS_LIMIT);
+    items.forEach((item) => wrapper.append(buildNewsCardFromData(item)));
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('tabs-news failed to load news feed', error);
+    const message = document.createElement('p');
+    message.className = 'tabs-news-error';
+    message.textContent = 'Unable to load news. Please try again later.';
+    wrapper.append(message);
+  }
+
+  appendViewAll(wrapper, viewAllHref);
+  panel.replaceChildren(wrapper);
+}
+
+export default async function decorate(block) {
   const tablist = document.createElement('div');
   tablist.className = 'tabs-news-list';
   tablist.setAttribute('role', 'tablist');
 
   const rows = [...block.children];
+  const newsIndexLink = block.querySelector('a[href$="news-index.json"]');
+  const newsIndexUrl = newsIndexLink?.href || DEFAULT_NEWS_INDEX;
 
-  rows.forEach((row, i) => {
+  for (let i = 0; i < rows.length; i += 1) {
+    const row = rows[i];
     const tabLabel = row.firstElementChild;
     const contentCell = row.children[1];
     const id = toClassName(tabLabel.textContent);
@@ -109,10 +193,17 @@ export default function decorate(block) {
     row.replaceChildren();
 
     if (contentCell) {
-      while (contentCell.firstChild) row.append(contentCell.firstChild);
-      buildPanel(row);
+      const isNewsTab = tabLabel.textContent.trim().toLowerCase() === 'news';
+      if (isNewsTab) {
+        const viewAllHref = getViewAllHref(contentCell);
+        // eslint-disable-next-line no-await-in-loop
+        await buildNewsPanel(row, viewAllHref, newsIndexUrl);
+      } else {
+        while (contentCell.firstChild) row.append(contentCell.firstChild);
+        buildPanel(row);
+      }
     }
-  });
+  }
 
   block.prepend(tablist);
 
