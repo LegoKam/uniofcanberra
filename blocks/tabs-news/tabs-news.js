@@ -21,7 +21,7 @@ function parsePanelItems(panel) {
   let viewAll = null;
 
   [...panel.children].forEach((el) => {
-    if (el.tagName === 'H4') {
+    if (el.tagName === 'H3') {
       if (current) items.push(current);
       current = { heading: el, excerpt: null, date: null, image: null };
     } else if (el.tagName === 'P') {
@@ -97,7 +97,7 @@ function buildNewsCardFromData(item) {
   date.textContent = data.date;
   body.append(date);
 
-  const heading = document.createElement('h4');
+  const heading = document.createElement('h3');
   const link = document.createElement('a');
   link.href = data.path || '#';
   link.textContent = data.title;
