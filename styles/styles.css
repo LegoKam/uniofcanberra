@@ -14,6 +14,7 @@
 
 :root {
   /* colors (brand.css supplies --background-color, --text-color, --link-color, etc.) */
+  --brand-accent-color: #026c91;
 
   /* body sizes */
   --body-font-size-m: 18px;

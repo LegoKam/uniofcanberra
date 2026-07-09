@@ -164,7 +164,7 @@ header nav .nav-search-toggle {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background-color: #009abc;
+  background-color: var(--brand-accent-color);
   color: #fff;
   cursor: pointer;
 }
@@ -199,7 +199,7 @@ header nav .nav-search-submit {
   height: 37px;
   border: 0;
   border-radius: 0 9999px 9999px 0;
-  background: #009abc no-repeat center / 16px;
+  background: var(--brand-accent-color) no-repeat center / 16px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
   cursor: pointer;
 }
@@ -215,7 +215,7 @@ header nav .nav-hamburger button {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: #009abc;
+  background: var(--brand-accent-color);
   cursor: pointer;
 }
 
@@ -429,7 +429,7 @@ header nav .nav-hamburger-icon::after {
   header nav[aria-expanded='true'] .nav-mobile-menu .nav-utility-quick {
     margin: 0;
     padding: 0;
-    background: #009abc;
+    background: var(--brand-accent-color);
     flex-direction: column;
     gap: 0;
     list-style: none;

@@ -39,7 +39,7 @@
   bottom: -40px;
   left: -250px;
   right: 12%;
-  background-color: #009abc;
+  background-color: var(--brand-accent-color);
 }
 
 .cards-pathway-container .default-content-wrapper::after {

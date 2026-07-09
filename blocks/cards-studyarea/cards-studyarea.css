@@ -59,7 +59,7 @@
   content: "";
   display: block;
   width: 70px;
-  border-bottom: 8px solid #009abc;
+  border-bottom: 8px solid var(--brand-accent-color);
   margin-top: 12px;
 }
 
@@ -116,7 +116,7 @@
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: #009abc;
+  background: var(--brand-accent-color);
   appearance: none;
   cursor: pointer;
 }
